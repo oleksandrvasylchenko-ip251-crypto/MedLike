@@ -1,0 +1,98 @@
+# МЕДЛАЙК .htaccess оптимізація
+
+# Увімкнення mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Редирект на HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Видалення www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Кешування браузера
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML - 1 день
+    ExpiresByType text/html "access plus 1 day"
+    
+    # CSS, JS - 30 днів
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresByType text/javascript "access plus 30 days"
+    
+    # Фото - 365 днів
+    ExpiresByType image/jpeg "access plus 365 days"
+    ExpiresByType image/gif "access plus 365 days"
+    ExpiresByType image/png "access plus 365 days"
+    ExpiresByType image/webp "access plus 365 days"
+    ExpiresByType image/svg+xml "access plus 365 days"
+    ExpiresByType image/x-icon "access plus 365 days"
+    
+    # Шрифти - 365 днів
+    ExpiresByType font/ttf "access plus 365 days"
+    ExpiresByType font/otf "access plus 365 days"
+    ExpiresByType font/woff "access plus 365 days"
+    ExpiresByType font/woff2 "access plus 365 days"
+</IfModule>
+
+# Компресія
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Типи контенту
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddEncoding gzip .webp
+</IfModule>
+
+# Безпека
+<Files ~ "\.env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<FilesMatch "\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Запобігання доступу до каталогів
+Options -Indexes
+
+# Усунення помилок 404 для відсутніх файлів
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [QSA,L]
+</IfModule>
+
+# Отримання доступу до файлів
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|eot|ttf|otf|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+    
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "max-age=86400, public"
+    </FilesMatch>
+</IfModule>

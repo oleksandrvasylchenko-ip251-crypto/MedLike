@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МЕДЛАЙК - Медичний центр</title>
+      <!-- FAVICON -->
+     <link type="image/png" sizes="16x16" rel="icon" href="images/web/icons8-asclepius-glyph-neue-16.png">
+    <link type="image/png" sizes="32x32" rel="icon" href="images/web/icons8-asclepius-glyph-neue-32.png">
+    
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="images/medlayk_logo-1.svg" alt="МЕДЛАЙК" width="140" height="auto">
+                </div>
+                <nav class="nav">
+                    <a href="#home">Головна</a>
+                    <a href="#about">Послуги</a>
+                    <a href="#doctors">Лікарі</a>
+                    <a href="#gallery">Галерея</a>
+                    <a href="#news">Новини</a>
+                    <a href="#contacts">Контакти</a>
+                    <button class="cta-btn" onclick="scrollToBooking()">Записатися</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+        </div>
+    </section>
+
+    <!-- BOOKING FORM -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Записатися на прийом</h2>
+            <form class="booking-form" onsubmit="handleBooking(event)">
+                <div class="form-row">
+                    <input type="text" placeholder="Ім'я та Прізвище" required>
+                    <input type="tel" placeholder="Телефон" required>
+                </div>
+                <div class="form-row">
+                    <select required>
+                        <option value="">Виберіть послугу</option>
+                        <option value="ophthalmology">Офтальмологія</option>
+                        <option value="surgery">Хірургія</option>
+                        <option value="aesthetic">Естетична медицина</option>
+                        <option value="vaccination">Вакцинація</option>
+                        <option value="consultation">Консультація</option>
+                    </select>
+                    <input type="text" placeholder="Побажання (необов'язково)">
+                </div>
+                <button type="submit" class="cta-btn">Надіслати</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Послуги та ціни</h2>
+            
+            <div class="services-grid">
+                <!-- Офтальмологія -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="100" height="100" src="https://img.icons8.com/blueprint/100/visible.png" alt="visible"/>
+                    <h3>Офтальмологія</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація офтальмолога</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Діагностика зору (комплексна)</span>
+                            <span class="service-price">800 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лазерна корекція зору</span>
+                            <span class="service-price">від 15000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування катаракти</span>
+                            <span class="service-price">від 20000 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Хірургія -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/64/external-surgeon-dental-icongeek26-outline-colour-icongeek26-2.png" alt="external-surgeon-dental-icongeek26-outline-colour-icongeek26-2"/>
+                    <h3>Хірургія</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація хірурга</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Видалення новоутворень</span>
+                            <span class="service-price">від 3000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Гістологічне дослідження</span>
+                            <span class="service-price">1500 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Естетична медицина -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/nolan/64/makeup-bag.png" alt="makeup-bag"/>
+                    <h3>Естетична медицина</h3>
+                   
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація косметолога</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Ботокс (1 зона)</span>
+                            <span class="service-price">2500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Філери (1 мл)</span>
+                            <span class="service-price">від 4000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Плазмоліфтинг</span>
+                            <span class="service-price">3000 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вакцинація -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="60" height="60" src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev.png" alt="external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev"/>
+                    <h3>Вакцинація</h3>
+                   
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація перед вакцинацією</span>
+                            <span class="service-price">400 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Вакцинація (дорослі)</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Вакцинація (діти)</span>
+                            <span class="service-price">від 600 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Консультації -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/doctor-female.png" alt="doctor-female"/>
+                    <h3>Консультації спеціалістів</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація педіатра</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Консультація ендокринолога</span>
+                            <span class="service-price">600 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Консультація терапевта</span>
+                            <span class="service-price">450 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дерматологія -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="48" height="48" src="https://img.icons8.com/pulsar-gradient/48/ultrasound.png" alt="ultrasound"/>
+                    <h3>Ультразвукові дослідження</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація дерматолога</span>
+                            <span class="service-price">550 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Дерматоскопія</span>
+                            <span class="service-price">700 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування шкірних захворювань</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/nolan/64/sale-price-tag.png" alt="sale-price-tag"/>
+                    <h3>Спеціальні пропозиції</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація дерматолога</span>
+                            <span class="service-price">550 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Дерматоскопія</span>
+                            <span class="service-price">700 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування шкірних захворювань</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOCTORS SECTION -->
+    <section id="doctors" class="doctors">
+        <div class="container">
+            <h2>Професійна команда</h2>
+                   <div class="paragraph">
+                        <p>
+                            <strong>MedLayk </strong> — це команда кваліфікованих лікарів, які поєднують багаторічний практичний 
+                            досвід із сучасними міжнародними підходами до діагностики та лікування. Ми працюємо 
+                            відповідно до принципів доказової медицини, дотримуємося високих стандартів лікарської
+                            етики та забезпечуємо індивідуальний підхід до кожного пацієнта.
+                        </p>
+                   </div>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/IMG_7949_NEW_C_-te1.webp" alt="Коновал Ігор Олексійович">
+                    <h3>Коновал Ігор Олексійович</h3>
+                    <p>Офтальмолог, Офтальмохірург</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7960_NEW_C.webp" alt="Чекіт Оксана">
+                    <h3>Чекіт Оксана Василівна</h3>
+                    <p>Головний лікар, Дерматовенеролог, Косметолог</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7951_NEW_C_-te1.webp" alt="Дмитрів Ірина Володимирівна">
+                    <h3>Дмитрів Ірина Володимирівна</h3>
+                    <p>Хірург, Судинний хірург</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7942_NEW_C_-te1.webp" alt="Засідкович Валентина">
+                    <h3>Засідкович Валентина Олександрівна</h3>
+                    <p>Психіатр</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7944_NEW_C_-te1.webp" alt="Пуковська Галина">
+                    <h3>Пуковська Галина Василівна</h3>
+                    <p>Терапевт</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7932_NEW_c_-te1.webp" alt="Юркевич Надія">
+                    <h3>Юркевич Надія Іванівна</h3>
+                    <p>Педіатр</p>
+                </div>
+               
+                <div class="carousel-item">
+                    <img src="images/IMG_7955_NEW_C_-te1.webp" alt="Романчук Світлана">
+                    <h3>Романчук Світлана Михайлівна</h3>
+                    <p>Дерматовенеролог, Косметолог</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/IMG_7936_NEW_C_-te1.webp" alt="Русінова Христина">
+                    <h3>Русінова Христина Ігорівна</h3>
+                    <p>Офтальмолог (І категорія)</p>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Наш медичний центр</h2>
+                    <div class="paragraph">
+                                <p>
+                                  <strong>Турбота про здоров’я всієї родини — </strong> 
+                                  в одному місці. Ми створили сучасний багатопрофільний медичний центр, 
+                                  де пацієнти можуть отримати широкий спектр медичних послуг у комфортних умовах та без зайвих очікувань.
+                                  У самому серці Івано-Франківська ми об’єднали досвідчених лікарів, сучасну діагностику й ефективні методи
+                                  лікування, щоб якісна медична допомога була доступною для кожного члена родини.
+                                  Ми прагнемо, щоб кожен пацієнт отримував не лише професійну медичну допомогу, а й уважне ставлення, 
+                                  зрозумілі рекомендації та підтримку на кожному етапі лікування.
+                                </p>
+                   </div>
+            <div class="gallery-accordion">
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6490-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6500-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6506-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6512-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6520-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6534-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6540-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="gallery-accordion-item" style="background-image: url('images/DSCF6560-min-scaled_-te1.webp');">
+                    <div class="gallery-accordion-overlay">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- NEWS SECTION -->
+<section id="news" class="news-section">
+    <div class="container">
+        <h2>Новини</h2>
+        
+        <!-- Навігація по новинах -->
+        <div class="news-nav">
+            <button class="news-nav-btn active" data-category="all">Всі</button>
+            <button class="news-nav-btn" data-category="clinic">Клініка</button>
+            <button class="news-nav-btn" data-category="services">Послуги</button>
+            <button class="news-nav-btn" data-category="events">Події</button>
+        </div>
+
+        <!-- Сітка новин -->
+        <div class="news-grid">
+            <!-- Новина 1 -->
+            <article class="news-card" data-category="clinic">
+                <div class="news-image">
+                    <img src="images/DSCF6490-min-scaled_-te1.webp" alt="Новина 1">
+                    <span class="news-date">15 червня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Відкриття нового відділення</h3>
+                    <p>Ми раді повідомити про відкриття нового сучасного відділення офтальмології в нашому медичному центрі.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <!-- Новина 2 -->
+            <article class="news-card" data-category="services">
+                <div class="news-image">
+                    <img src="images/DSCF6500-min-scaled_-te1.webp" alt="Новина 2">
+                    <span class="news-date">10 червня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Нові послуги лазерної корекції</h3>
+                    <p>Запроваджуємо новітні технології лазерної корекції зору за доступними цінами.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <!-- Новина 3 -->
+            <article class="news-card" data-category="events">
+                <div class="news-image">
+                    <img src="images/DSCF6506-min-scaled_-te1.webp" alt="Новина 3">
+                    <span class="news-date">5 червня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Безкоштовні консультації</h3>
+                    <p>Акція! Безкоштовні консультації провідних спеціалістів протягом червня.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <!-- Новина 4 -->
+            <article class="news-card" data-category="clinic">
+                <div class="news-image">
+                    <img src="images/DSCF6512-min-scaled_-te1.webp" alt="Новина 4">
+                    <span class="news-date">1 червня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Оновлення обладнання</h3>
+                    <p>Придбано нове діагностичне обладнання від провідних світових виробників.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <!-- Новина 5 -->
+            <article class="news-card" data-category="services">
+                <div class="news-image">
+                    <img src="images/DSCF6520-min-scaled_-te1.webp" alt="Новина 5">
+                    <span class="news-date">25 травня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Новий напрямок - дитяча офтальмологія</h3>
+                    <p>Відкрито спеціалізований кабінет для діагностики та лікування очей у дітей.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+
+            <!-- Новина 6 -->
+            <article class="news-card" data-category="events">
+                <div class="news-image">
+                    <img src="images/DSCF6534-min-scaled_-te1.webp" alt="Новина 6">
+                    <span class="news-date">20 травня 2026</span>
+                </div>
+                <div class="news-content">
+                    <h3>Семінар для лікарів</h3>
+                    <p>Проведено міжнародний семінар з сучасних методів лікування захворювань очей.</p>
+                    <a href="#" class="news-read-more">Читати далі →</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Кнопка "Всі новини"
+        <div class="news-all-btn">
+            <a href="#" class="cta-btn">Всі новини</a>
+        </div> -->
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- CONTACT SECTION -->
+        <section id="contacts" class="contacts-section">
+            <div class="container">
+                <h2>Контакти</h2>
+        
+                    <div class="contacts-wrapper">
+                        <!-- Ліва частина - контактна інформація -->
+                        <div class="contacts-info">
+                            <div class="contact-block address-block">
+                                
+                                <img width="64" height="64" src="https://img.icons8.com/nolan/64/marker.png" alt="marker"/>
+                                <div class="contact-content">
+                                    <h3>Адреса</h3>
+                                    <p>м. Івано-Франківськ<br>вул. Володимира Великого 12Б</p>
+                                    <a href="https://maps.google.com/maps?q=вул.+Володимира+Великого+12Б,+Івано-Франківськ" target="_blank" class="map-link">Відкрити в Google Maps →</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-block phone-block">
+                                <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/>
+                                <div class="contact-content">
+                                    <h3>Телефони</h3>
+                                    <p><a href="tel:+380989321986">+38 (098) 932-19-86</a></p>
+                                    <p><a href="tel:+380668986731">+38 (066) 898-67-31</a></p>
+                                </div>
+                            </div>
+
+                            <div class="contact-block social-block">
+                                <img width="64" height="64" src="https://img.icons8.com/nolan/64/iphone-x.png" alt="iphone-x"/>
+                                <div class="contact-content">
+                                    <h3>Ми в соцмережах</h3>
+                                    <div class="social-contacts">
+                                        <a href="https://www.instagram.com/medlayk.center/" target="_blank" class="social-link instagram">
+                                            <img width="32" height="32" src="https://img.icons8.com/nolan/64/instagram-new.png" alt="Instagram"/>
+                                            
+                                        </a>
+                                        <a href="https://www.facebook.com/medlayk.center/" target="_blank" class="social-link facebook">
+                                            <img width="32" height="32" src="https://img.icons8.com/nolan/64/facebook.png" alt="Facebook"/>
+                                            
+                                        </a>
+                                        <a href="mailto:medlayk.if@gmail.com" target="_blank" class="social-link gmail">
+                                            <img width="32" height="32" src="https://img.icons8.com/nolan/64/gmail.png" alt="Gmail"/>
+                                            
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-block hours-block">
+                                <img width="64" height="64" src="https://img.icons8.com/nolan/64/ok--v2.png" alt="ok--v2"/>
+                                <div class="contact-content">
+                                    <h3>Графік роботи</h3>
+                                    <p><span class="day">Пн-Пт:</span> 9:00 - 20:00</p>
+                                    <p><span class="day">Сб:</span> 9:00 - 17:00</p>
+                                    <p><span class="day">Нд:</span> <span class="closed">Вихідний</span></p>
+                                </div>
+                            </div>
+
+                
+            </div>
+
+            <!-- Права частина - Google Карта -->
+            <div class="contacts-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2649.123456789!2d24.709123456789!3d48.922123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730c1d123456789%3A0x123456789abcdef!2z0LLRg9C7LiDQktC-0LvQvtC00LjQvNC40YDQsCDQktC10LvQuNC60L7Qs9C-LCAxMtCSLCDQhtCy0LDQvdC-LdCk0YDQsNC90LrQvtCy0YHRjNC6LCDQhtCy0LDQvdC-LdCk0YDQsNC90LrQvtCy0YHQutCwINC-0LHQu9Cw0YHRgtGMLCA3NjAwMA!5e0!3m2!1suk!2sua!4v1234567890"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- FOOTER/CONTACTS -->
+    <footer id="contacts" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>МЕДЛАЙК</h3>
+                    <p>Медичний центр з новим підходом до вашого здоров'я</p>
+                    <div class="social-links">
+                            <a href="https://www.instagram.com/medlayk.center/" target="_blank" class="social-link instagram">
+                                                <img width="32" height="32" src="https://img.icons8.com/nolan/64/instagram-new.png" alt="Instagram"/>
+                                                
+                            </a>
+                            <a href="https://www.facebook.com/medlayk.center/" target="_blank" class="social-link facebook">
+                                                <img width="32" height="32" src="https://img.icons8.com/nolan/64/facebook.png" alt="Facebook"/>
+                                                
+                            </a>
+                            <a href="mailto:medlayk.if@gmail.com" target="_blank" class="social-link gmail">
+                                <img width="32" height="32" src="https://img.icons8.com/nolan/64/gmail.png" alt="Gmail"/>
+                                                
+                            </a>
+                           
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Адреса</h3>
+                    <p>м.Івано-Франківськ<br>вул. Володимира Великого 12Б</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакти</h3>
+                    <p><a href="tel:+380989321986">+38(098)932-19-86</a></p>
+                    <p><a href="tel:+380668986731">+38(066)898-67-31</a></p>
+                    <p><a href="mailto:medlayk.if@gmail.com">medlayk.if@gmail.com</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Час роботи</h3>
+                    <p>Пн-Пт: 9:00 - 20:00<br>Сб: 9:00 - 17:00<br>Нд: Вихідний</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 МЕДЛАЙК. Всі права захищені.
+                </p>
+                <p>
+                    Наказ МОЗ України від 16.01.2021 № 53, Реєстраційне досьє від 27.11.2020 № 5239/Л-П
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" aria-label="Повернутися вгору">↑</button>
+
+    <script src="script/script.js"></script>
+
+<!-- CALL MODAL -->
+<div class="call-modal" id="callModal">
+    <div class="call-modal-content">
+        <button class="call-modal-close" onclick="closeCallModal()">✕</button>
+        
+        <!-- Заголовок -->
+        <div class="call-modal-header">
+            <span class="call-modal-icon"><img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/></span>
+            <h2>Замовити дзвінок</h2>
+            <p>Залиште номер і ми передзвонимо вам</p>
+        </div>
+
+        <!-- Вибір часу -->
+        <div class="call-time-selector">
+            <p class="call-time-label">Оберіть зручний час для дзвінка:</p>
+            <div class="call-time-options">
+                <button class="time-option active" data-time="10">⏱ 10 хв</button>
+                <button class="time-option" data-time="20">⏱ 20 хв</button>
+                <button class="time-option" data-time="30">⏱ 30 хв</button>
+                <button class="time-option" data-time="60">⏱ 60 хв</button>
+            </div>
+            <div class="call-custom-time">
+                <input type="number" id="customTime" placeholder="Свій час (хв)" min="1" max="120">
+                <button class="set-time-btn" onclick="setCustomTime()">Встановити</button>
+            </div>
+        </div>
+
+        <!-- Форма -->
+        <form class="call-modal-form" onsubmit="submitPhone(event)">
+            <div class="call-form-group">
+                <label for="callPhone">Ваш номер телефону</label>
+                <input type="tel" id="callPhone" placeholder="+38 (0XX) XXX-XX-XX" required>
+            </div>
+            <button type="submit" class="call-submit-btn">Чекаю на дзвінок</button>
+        </form>
+
+        <!-- Таймер -->
+        <div class="call-timer" id="callTimer" style="display: none;">
+            <div class="timer-circle">
+                <span class="timer-number" id="timerDisplay">10:00</span>
+                <span class="timer-label">хвилин до дзвінка</span>
+            </div>
+            <div class="timer-progress">
+                <div class="timer-progress-bar" id="timerProgressBar"></div>
+            </div>
+            <p class="timer-status" id="timerStatus">⏳ Очікуємо дзвінка...</p>
+            <button class="timer-cancel-btn" onclick="cancelTimer()">Скасувати</button>
+        </div>
+    </div>
+</div>
+
+<!-- CALL BUTTON FIXED -->
+<button class="call-btn-fixed" onclick="openCallModal()" aria-label="Зателефонувати">
+ <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/>
+</button>
+
+
+</body>
+</html>
