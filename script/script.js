@@ -703,3 +703,181 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+
+
+// ==================== МОБІЛЬНА ГАЛЕРЕЯ (свайп) ====================
+function initMobileGallery() {
+    const gallery = document.querySelector('.gallery-accordion');
+    const items = document.querySelectorAll('.gallery-accordion-item');
+    
+    if (!gallery || items.length === 0) return;
+    if (window.innerWidth > 768) return; // Тільки для мобільних
+
+    // Очищаємо клас active у всіх
+    items.forEach(item => item.classList.remove('active'));
+
+    // Створюємо контейнер для точок
+    let dotsContainer = document.querySelector('.gallery-dots');
+    if (!dotsContainer) {
+        dotsContainer = document.createElement('div');
+        dotsContainer.className = 'gallery-dots';
+        gallery.parentNode.insertBefore(dotsContainer, gallery.nextSibling);
+    }
+
+    // Створюємо точки
+    items.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('data-index', index);
+        dot.addEventListener('click', () => {
+            scrollToItem(index);
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Створюємо кнопки навігації
+    let navContainer = document.querySelector('.gallery-nav');
+    if (!navContainer) {
+        navContainer = document.createElement('div');
+        navContainer.className = 'gallery-nav';
+        navContainer.innerHTML = `
+            <button class="gallery-nav-btn prev-btn" aria-label="Назад">❮</button>
+            <button class="gallery-nav-btn next-btn" aria-label="Вперед">❯</button>
+        `;
+        dotsContainer.parentNode.insertBefore(navContainer, dotsContainer.nextSibling);
+    }
+
+    const prevBtn = navContainer.querySelector('.prev-btn');
+    const nextBtn = navContainer.querySelector('.next-btn');
+
+    // Функція прокрутки до елемента
+    function scrollToItem(index) {
+        const item = items[index];
+        if (item) {
+            item.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+            updateActive(index);
+        }
+    }
+
+    // Оновлення активних елементів
+    function updateActive(activeIndex) {
+        // Оновлюємо точки
+        const dots = document.querySelectorAll('.gallery-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+
+        // Оновлюємо елементи галереї
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === activeIndex);
+        });
+
+        // Оновлюємо кнопки
+        if (prevBtn) prevBtn.disabled = activeIndex === 0;
+        if (nextBtn) nextBtn.disabled = activeIndex === items.length - 1;
+    }
+
+    // Визначення активного елемента при скролі
+    let isScrolling = false;
+    gallery.addEventListener('scroll', () => {
+        if (isScrolling) return;
+        isScrolling = true;
+        
+        requestAnimationFrame(() => {
+            const center = gallery.scrollLeft + gallery.offsetWidth / 2;
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            items.forEach((item, index) => {
+                const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+                const distance = Math.abs(center - itemCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            updateActive(closestIndex);
+            isScrolling = false;
+        });
+    });
+
+    // Кнопки навігації
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const currentIndex = getCurrentIndex();
+            if (currentIndex > 0) {
+                scrollToItem(currentIndex - 1);
+            }
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const currentIndex = getCurrentIndex();
+            if (currentIndex < items.length - 1) {
+                scrollToItem(currentIndex + 1);
+            }
+        });
+    }
+
+    function getCurrentIndex() {
+        const center = gallery.scrollLeft + gallery.offsetWidth / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        items.forEach((item, index) => {
+            const itemCenter = item.offsetLeft + item.offsetWidth / 2;
+            const distance = Math.abs(center - itemCenter);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        return closestIndex;
+    }
+
+    // Початкова ініціалізація
+    setTimeout(() => {
+        updateActive(0);
+    }, 100);
+}
+
+// ==================== ВИКЛИК ПРИ ЗАВАНТАЖЕННІ ====================
+document.addEventListener('DOMContentLoaded', () => {
+    // ... існуючий код ...
+    
+    // Ініціалізація мобільної галереї
+    initMobileGallery();
+});
+
+// ==================== ОНОВЛЕННЯ ПРИ ЗМІНІ РОЗМІРУ ====================
+window.addEventListener('resize', () => {
+    const gallery = document.querySelector('.gallery-accordion');
+    const navContainer = document.querySelector('.gallery-nav');
+    const dotsContainer = document.querySelector('.gallery-dots');
+    
+    if (gallery) {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            if (navContainer) navContainer.style.display = 'flex';
+            if (dotsContainer) dotsContainer.style.display = 'flex';
+        } else {
+            if (navContainer) navContainer.style.display = 'none';
+            if (dotsContainer) dotsContainer.style.display = 'none';
+            // Повертаємо десктопну поведінку
+            const items = document.querySelectorAll('.gallery-accordion-item');
+            items.forEach(item => item.classList.remove('active'));
+            if (items.length > 0) items[0].classList.add('active');
+        }
+    }
+});
