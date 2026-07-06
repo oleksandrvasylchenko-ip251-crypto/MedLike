@@ -18,9 +18,134 @@
         gap: 30px;
     }
 
+    /* Планшетна галерея (свайп) */
     .gallery-accordion {
-        height: 400px;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        padding: 10px 8px 20px;
+        margin: 0 -8px;
+        scroll-behavior: smooth;
+        height: 380px;
+        border-radius: 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .gallery-accordion::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery-accordion-item {
+        flex: 0 0 55%;
+        min-width: 0;
+        height: 100%;
+        border-radius: 14px;
+        scroll-snap-align: center;
+        transition: transform 0.3s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery-accordion-item:first-child {
+        margin-left: 8px;
+    }
+
+    .gallery-accordion-item:last-child {
+        margin-right: 8px;
+    }
+
+    .gallery-accordion-item.active {
+        flex: 0 0 55%;
+        transform: scale(1.02);
+    }
+
+    .gallery-accordion-item:not(.active) {
+        flex: 0 0 55%;
+        opacity: 0.7;
+    }
+
+    .gallery-accordion-item:not(.active):hover .gallery-accordion-overlay {
+        opacity: 0;
+    }
+
+    .gallery-accordion-overlay {
+        padding: 18px 18px;
+        border-radius: 0 0 14px 14px;
+    }
+
+    .gallery-accordion-item.active .gallery-accordion-overlay {
+        opacity: 1;
+    }
+
+    .gallery-accordion-item:not(.active) .gallery-accordion-overlay {
+        opacity: 0;
+    }
+
+    .gallery-accordion-overlay span {
+        font-size: 16px;
+    }
+
+    .gallery-dots {
+        display: flex;
+        justify-content: center;
         gap: 10px;
+        padding: 14px 0 5px;
+    }
+
+    .gallery-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border);
+        cursor: pointer;
+        transition: all 0.3s;
+        border: none;
+        padding: 0;
+    }
+
+    .gallery-dot.active {
+        background: var(--primary);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    .gallery-nav {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 10px;
+    }
+
+    .gallery-nav-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 15px rgba(9, 185, 170, 0.3);
+    }
+
+    .gallery-nav-btn:hover {
+        transform: scale(1.05);
+    }
+
+    .gallery-nav-btn:active {
+        transform: scale(0.95);
+    }
+
+    .gallery-nav-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
     }
 }
 
@@ -168,13 +293,21 @@
         padding: 12px 12px 3px;
     }
 
-    /* BACK TO TOP */
+    /* BACK TO TOP - видима після прокрутки */
     .back-to-top {
         bottom: 20px;
         right: 20px;
         width: 45px;
         height: 45px;
         font-size: 18px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -500,12 +633,21 @@
         width: 18px;
     }
 
+    /* BACK TO TOP */
     .back-to-top {
         bottom: 15px;
         right: 15px;
         width: 40px;
         height: 40px;
         font-size: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -868,24 +1010,28 @@
     }
 }
 
-/* ==================== CALL BUTTON MOBILE ==================== */
+/* ==================== CALL BUTTON MOBILE - ЗАВЖДИ ВИДНА ==================== */
 @media (max-width: 768px) {
     .call-btn-fixed {
-        bottom: 20px;
+        bottom: 80px;
         left: 20px;
         width: 54px;
         height: 54px;
         font-size: 24px;
+        opacity: 1;
+        visibility: visible;
     }
 }
 
 @media (max-width: 480px) {
     .call-btn-fixed {
-        bottom: 15px;
+        bottom: 65px;
         left: 15px;
         width: 48px;
         height: 48px;
         font-size: 20px;
+        opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -931,5 +1077,34 @@
     .set-time-btn {
         padding: 6px 14px;
         font-size: 12px;
+    }
+}
+
+
+
+/* ===== ГРАФІК РОБОТИ МОБІЛЬНИЙ ===== */
+@media (max-width: 768px) {
+    .hours-item .day {
+        font-size: 14px;
+    }
+
+    .hours-item .time {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hours-item {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 6px 0;
+    }
+
+    .hours-item .day {
+        font-size: 13px;
+    }
+
+    .hours-item .time {
+        font-size: 13px;
     }
 }

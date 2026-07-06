@@ -64,168 +64,169 @@
     </section>
 
     <!-- ABOUT SECTION -->
-<section id="about" class="about">
-    <div class="container">
-        <h2>Послуги та ціни</h2>
-        
-        <div class="services-grid">
-            <!-- 1. Консультації спеціалістів -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/doctor-female.png" alt="doctor-female"/>
-                <h3>Консультації спеціалістів</h3>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Послуги та ціни</h2>
+            
+            <div class="services-grid">
+
+                 <!-- Консультації -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/doctor-female.png" alt="doctor-female"/>
+                    <h3>Консультації спеціалістів</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація педіатра</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Консультація ендокринолога</span>
+                            <span class="service-price">600 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Консультація терапевта</span>
+                            <span class="service-price">450 грн</span>
+                        </div>
+                    </div>
+                <!-- Офтальмологія -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="100" height="100" src="https://img.icons8.com/blueprint/100/visible.png" alt="visible"/>
+                    <h3>Офтальмологія</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація офтальмолога</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Діагностика зору (комплексна)</span>
+                            <span class="service-price">800 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лазерна корекція зору</span>
+                            <span class="service-price">від 15000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування катаракти</span>
+                            <span class="service-price">від 20000 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Хірургія -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/64/external-surgeon-dental-icongeek26-outline-colour-icongeek26-2.png" alt="external-surgeon-dental-icongeek26-outline-colour-icongeek26-2"/>
+                    <h3>Хірургія</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація хірурга</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Видалення новоутворень</span>
+                            <span class="service-price">від 3000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Гістологічне дослідження</span>
+                            <span class="service-price">1500 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Естетична медицина -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/nolan/64/makeup-bag.png" alt="makeup-bag"/>
+                    <h3>Естетична медицина</h3>
+                   
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація косметолога</span>
+                            <span class="service-price">500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Ботокс (1 зона)</span>
+                            <span class="service-price">2500 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Філери (1 мл)</span>
+                            <span class="service-price">від 4000 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Плазмоліфтинг</span>
+                            <span class="service-price">3000 грн</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ультразвукові дослідження -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="48" height="48" src="https://img.icons8.com/pulsar-gradient/48/ultrasound.png" alt="ultrasound"/>
+                    <h3>Ультразвукові дослідження</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація дерматолога</span>
+                            <span class="service-price">550 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Дерматоскопія</span>
+                            <span class="service-price">700 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування шкірних захворювань</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Консультація педіатра</span>
-                        <span class="service-price">500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Консультація ендокринолога</span>
-                        <span class="service-price">600 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Консультація терапевта</span>
-                        <span class="service-price">450 грн</span>
+                 <!-- Вакцинація -->
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="60" height="60" src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev.png" alt="external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev"/>
+                    <h3>Вакцинація</h3>
+                   
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація перед вакцинацією</span>
+                            <span class="service-price">400 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Вакцинація (дорослі)</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Вакцинація (діти)</span>
+                            <span class="service-price">від 600 грн</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- 2. Офтальмологія -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="100" height="100" src="https://img.icons8.com/blueprint/100/visible.png" alt="visible"/>
-                <h3>Офтальмологія</h3>
                 
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Консультація офтальмолога</span>
-                        <span class="service-price">500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Діагностика зору (комплексна)</span>
-                        <span class="service-price">800 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Лазерна корекція зору</span>
-                        <span class="service-price">від 15000 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Лікування катаракти</span>
-                        <span class="service-price">від 20000 грн</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 3. Хірургія -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="64" height="64" src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/64/external-surgeon-dental-icongeek26-outline-colour-icongeek26-2.png" alt="external-surgeon-dental-icongeek26-outline-colour-icongeek26-2"/>
-                <h3>Хірургія</h3>
-                
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Консультація хірурга</span>
-                        <span class="service-price">500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Видалення новоутворень</span>
-                        <span class="service-price">від 3000 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Гістологічне дослідження</span>
-                        <span class="service-price">1500 грн</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 4. Естетична медицина -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="64" height="64" src="https://img.icons8.com/nolan/64/makeup-bag.png" alt="makeup-bag"/>
-                <h3>Естетична медицина</h3>
-               
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Консультація косметолога</span>
-                        <span class="service-price">500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Ботокс (1 зона)</span>
-                        <span class="service-price">2500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Філери (1 мл)</span>
-                        <span class="service-price">від 4000 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Плазмоліфтинг</span>
-                        <span class="service-price">3000 грн</span>
-                    </div>
-                </div>
-            </div>
 
-            <!-- 5. Ультразвукові дослідження -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="48" height="48" src="https://img.icons8.com/pulsar-gradient/48/ultrasound.png" alt="ultrasound"/>
-                <h3>Ультразвукові дослідження</h3>
-                
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">УЗД органів черевної порожнини</span>
-                        <span class="service-price">550 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">УЗД щитоподібної залози</span>
-                        <span class="service-price">500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">УЗД судин</span>
-                        <span class="service-price">700 грн</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6. Вакцинація -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="60" height="60" src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev.png" alt="external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev"/>
-                <h3>Вакцинація</h3>
-               
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Консультація перед вакцинацією</span>
-                        <span class="service-price">400 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Вакцинація (дорослі)</span>
-                        <span class="service-price">від 800 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Вакцинація (діти)</span>
-                        <span class="service-price">від 600 грн</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 7. Спеціальні пропозиції -->
-            <div class="service-card" onclick="toggleService(this)">
-                <img width="64" height="64" src="https://img.icons8.com/nolan/64/sale-price-tag.png" alt="sale-price-tag"/>
-                <h3>Спеціальні пропозиції</h3>
-                
-                <div class="service-details">
-                    <div class="service-item">
-                        <span class="service-name">Комплексне обстеження</span>
-                        <span class="service-price">від 1500 грн</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Сімейний пакет</span>
-                        <span class="service-price">-20%</span>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-name">Акція першого відвідування</span>
-                        <span class="service-price">-15%</span>
+                <div class="service-card" onclick="toggleService(this)">
+                    <img width="64" height="64" src="https://img.icons8.com/nolan/64/sale-price-tag.png" alt="sale-price-tag"/>
+                    <h3>Спеціальні пропозиції</h3>
+                    
+                    <div class="service-details">
+                        <div class="service-item">
+                            <span class="service-name">Консультація дерматолога</span>
+                            <span class="service-price">550 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Дерматоскопія</span>
+                            <span class="service-price">700 грн</span>
+                        </div>
+                        <div class="service-item">
+                            <span class="service-name">Лікування шкірних захворювань</span>
+                            <span class="service-price">від 800 грн</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- DOCTORS SECTION -->
     <section id="doctors" class="doctors">
@@ -347,6 +348,15 @@
     </section>
 
 
+
+
+
+
+
+
+
+
+
 <!-- NEWS SECTION -->
 <section id="news" class="news-section">
     <div class="container">
@@ -447,6 +457,75 @@
         </div> -->
     </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
        <!-- CONTACT SECTION -->
@@ -589,9 +668,7 @@
     </footer>
 
     <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="backToTop" aria-label="Повернутися вгору">
-        <img width="48" height="48" src="https://img.icons8.com/pulsar-gradient/48/circled-up.png" alt="circled-up"/>
-    </button>
+    <button class="back-to-top" id="backToTop" aria-label="Повернутися вгору">↑</button>
 
     <script src="script/script.js"></script>
 
@@ -648,8 +725,7 @@
 
 <!-- CALL BUTTON FIXED -->
 <button class="call-btn-fixed" onclick="openCallModal()" aria-label="Зателефонувати">
- <!-- <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/> -->
-  <img width="64" height="64" src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/external-phone-medical-kiranshastry-gradient-kiranshastry.png" alt="external-phone-medical-kiranshastry-gradient-kiranshastry"/>
+ <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/>
 </button>
 
 

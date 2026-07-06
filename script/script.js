@@ -382,16 +382,19 @@ function initGalleryAccordion() {
     
     if (items.length === 0) return;
     
-    items[0].classList.add('active');
-    
-    items.forEach(item => {
-        item.addEventListener('click', function(e) {
-            if (this.classList.contains('active')) return;
-            
-            items.forEach(i => i.classList.remove('active'));
-            this.classList.add('active');
+    // Тільки для десктопу (>1024px) та планшету (>768px)
+    if (window.innerWidth > 768) {
+        items[0].classList.add('active');
+        
+        items.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (this.classList.contains('active')) return;
+                
+                items.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
-    });
+    }
 }
 
 // ==================== SERVICE CARDS TOGGLE ====================
@@ -465,8 +468,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveNavLink();
     initBackToTop();
     initGalleryAccordion();
+    initNewsFilter();
+    initMobileGallery();
 });
-
 
 // ==================== NEWS FILTER ====================
 function initNewsFilter() {
@@ -477,7 +481,6 @@ function initNewsFilter() {
 
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            // Видаляємо активний клас у всіх кнопок
             buttons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
@@ -494,19 +497,11 @@ function initNewsFilter() {
     });
 }
 
-// Додати виклик у DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    // ... існуючий код ...
-    initNewsFilter();
-});
-
-
-
 // ==================== CALL MODAL ====================
 let timerInterval = null;
-let timerSeconds = 600; // 10 хвилин за замовчуванням
+let timerSeconds = 600;
 let isTimerRunning = false;
-let selectedTime = 10; // хвилин
+let selectedTime = 10;
 
 function openCallModal() {
     const modal = document.getElementById('callModal');
@@ -519,7 +514,6 @@ function openCallModal() {
     document.querySelector('.call-modal-form').style.display = 'flex';
     document.querySelector('.call-time-selector').style.display = 'block';
     
-    // Скидаємо вибір часу
     selectedTime = 10;
     timerSeconds = 600;
     document.querySelectorAll('.time-option').forEach(btn => {
@@ -540,21 +534,18 @@ function closeCallModal() {
     }
 }
 
-// Закриття по кліку на фон
 document.getElementById('callModal').addEventListener('click', function(e) {
     if (e.target === this) {
         closeCallModal();
     }
 });
 
-// Закриття по Escape
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeCallModal();
     }
 });
 
-// ==================== ВИБІР ЧАСУ ====================
 document.querySelectorAll('.time-option').forEach(btn => {
     btn.addEventListener('click', function() {
         document.querySelectorAll('.time-option').forEach(b => b.classList.remove('active'));
@@ -578,7 +569,6 @@ function setCustomTime() {
     }
 }
 
-// ==================== SUBMIT PHONE ====================
 function submitPhone(event) {
     event.preventDefault();
     
@@ -601,7 +591,6 @@ function submitPhone(event) {
     startTimer(phone);
 }
 
-// ==================== TIMER ====================
 function startTimer(phone) {
     isTimerRunning = true;
     updateTimerDisplay(timerSeconds);
@@ -682,7 +671,6 @@ function resetModal() {
     document.getElementById('timerProgressBar').style.width = '100%';
 }
 
-// ==================== PHONE INPUT FORMAT ====================
 document.addEventListener('DOMContentLoaded', function() {
     const phoneInput = document.getElementById('callPhone');
     if (phoneInput) {
@@ -704,22 +692,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-
-
 // ==================== МОБІЛЬНА ГАЛЕРЕЯ (свайп) ====================
 function initMobileGallery() {
     const gallery = document.querySelector('.gallery-accordion');
     const items = document.querySelectorAll('.gallery-accordion-item');
     
     if (!gallery || items.length === 0) return;
-    if (window.innerWidth > 768) return; // Тільки для мобільних
+    if (window.innerWidth > 768) return;
 
-    // Очищаємо клас active у всіх
     items.forEach(item => item.classList.remove('active'));
 
-    // Створюємо контейнер для точок
     let dotsContainer = document.querySelector('.gallery-dots');
     if (!dotsContainer) {
         dotsContainer = document.createElement('div');
@@ -727,25 +709,21 @@ function initMobileGallery() {
         gallery.parentNode.insertBefore(dotsContainer, gallery.nextSibling);
     }
 
-    // Створюємо точки
     items.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
-        dot.setAttribute('data-index', index);
-        dot.addEventListener('click', () => {
-            scrollToItem(index);
-        });
+        dot.dataset.index = index;
+        dot.addEventListener('click', () => scrollToItem(index));
         dotsContainer.appendChild(dot);
     });
 
-    // Створюємо кнопки навігації
     let navContainer = document.querySelector('.gallery-nav');
     if (!navContainer) {
         navContainer = document.createElement('div');
         navContainer.className = 'gallery-nav';
         navContainer.innerHTML = `
-            <button class="gallery-nav-btn prev-btn" aria-label="Назад">❮</button>
-            <button class="gallery-nav-btn next-btn" aria-label="Вперед">❯</button>
+            <button class="gallery-nav-btn prev-btn">❮</button>
+            <button class="gallery-nav-btn next-btn">❯</button>
         `;
         dotsContainer.parentNode.insertBefore(navContainer, dotsContainer.nextSibling);
     }
@@ -753,129 +731,78 @@ function initMobileGallery() {
     const prevBtn = navContainer.querySelector('.prev-btn');
     const nextBtn = navContainer.querySelector('.next-btn');
 
-    // Функція прокрутки до елемента
     function scrollToItem(index) {
-        const item = items[index];
-        if (item) {
-            item.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
-            });
-            updateActive(index);
-        }
+        items[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        updateActive(index);
     }
 
-    // Оновлення активних елементів
-    function updateActive(activeIndex) {
-        // Оновлюємо точки
-        const dots = document.querySelectorAll('.gallery-dot');
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === activeIndex);
+    function updateActive(index) {
+        document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
         });
-
-        // Оновлюємо елементи галереї
         items.forEach((item, i) => {
-            item.classList.toggle('active', i === activeIndex);
+            item.classList.toggle('active', i === index);
         });
-
-        // Оновлюємо кнопки
-        if (prevBtn) prevBtn.disabled = activeIndex === 0;
-        if (nextBtn) nextBtn.disabled = activeIndex === items.length - 1;
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === items.length - 1;
     }
 
-    // Визначення активного елемента при скролі
     let isScrolling = false;
     gallery.addEventListener('scroll', () => {
         if (isScrolling) return;
         isScrolling = true;
-        
         requestAnimationFrame(() => {
             const center = gallery.scrollLeft + gallery.offsetWidth / 2;
-            let closestIndex = 0;
-            let closestDistance = Infinity;
-
-            items.forEach((item, index) => {
-                const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-                const distance = Math.abs(center - itemCenter);
+            let closestIndex = 0, closestDistance = Infinity;
+            items.forEach((item, i) => {
+                const distance = Math.abs(center - (item.offsetLeft + item.offsetWidth / 2));
                 if (distance < closestDistance) {
                     closestDistance = distance;
-                    closestIndex = index;
+                    closestIndex = i;
                 }
             });
-
             updateActive(closestIndex);
             isScrolling = false;
         });
     });
 
-    // Кнопки навігації
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            const currentIndex = getCurrentIndex();
-            if (currentIndex > 0) {
-                scrollToItem(currentIndex - 1);
-            }
-        });
-    }
+    prevBtn?.addEventListener('click', () => {
+        const current = items.findIndex(item => item.classList.contains('active'));
+        if (current > 0) scrollToItem(current - 1);
+    });
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            const currentIndex = getCurrentIndex();
-            if (currentIndex < items.length - 1) {
-                scrollToItem(currentIndex + 1);
-            }
-        });
-    }
+    nextBtn?.addEventListener('click', () => {
+        const current = items.findIndex(item => item.classList.contains('active'));
+        if (current < items.length - 1) scrollToItem(current + 1);
+    });
 
-    function getCurrentIndex() {
-        const center = gallery.scrollLeft + gallery.offsetWidth / 2;
-        let closestIndex = 0;
-        let closestDistance = Infinity;
-
-        items.forEach((item, index) => {
-            const itemCenter = item.offsetLeft + item.offsetWidth / 2;
-            const distance = Math.abs(center - itemCenter);
-            if (distance < closestDistance) {
-                closestDistance = distance;
-                closestIndex = index;
-            }
-        });
-
-        return closestIndex;
-    }
-
-    // Початкова ініціалізація
-    setTimeout(() => {
-        updateActive(0);
-    }, 100);
+    setTimeout(() => updateActive(0), 100);
 }
-
-// ==================== ВИКЛИК ПРИ ЗАВАНТАЖЕННІ ====================
-document.addEventListener('DOMContentLoaded', () => {
-    // ... існуючий код ...
-    
-    // Ініціалізація мобільної галереї
-    initMobileGallery();
-});
 
 // ==================== ОНОВЛЕННЯ ПРИ ЗМІНІ РОЗМІРУ ====================
 window.addEventListener('resize', () => {
     const gallery = document.querySelector('.gallery-accordion');
     const navContainer = document.querySelector('.gallery-nav');
     const dotsContainer = document.querySelector('.gallery-dots');
+    const items = document.querySelectorAll('.gallery-accordion-item');
     
-    if (gallery) {
+    if (gallery && items.length > 0) {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
             if (navContainer) navContainer.style.display = 'flex';
             if (dotsContainer) dotsContainer.style.display = 'flex';
+            let hasActive = false;
+            items.forEach(item => {
+                if (item.classList.contains('active')) hasActive = true;
+            });
+            if (!hasActive) {
+                items.forEach(item => item.classList.remove('active'));
+                items[0].classList.add('active');
+            }
         } else {
             if (navContainer) navContainer.style.display = 'none';
             if (dotsContainer) dotsContainer.style.display = 'none';
-            // Повертаємо десктопну поведінку
-            const items = document.querySelectorAll('.gallery-accordion-item');
             items.forEach(item => item.classList.remove('active'));
             if (items.length > 0) items[0].classList.add('active');
         }
