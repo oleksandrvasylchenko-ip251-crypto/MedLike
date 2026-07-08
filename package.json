@@ -1,0 +1,26 @@
+{
+  "name": "medlike",
+  "version": "1.0.0",
+  "description": "Static website for MedLike clinic",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "lighthouse": "npx lighthouse http://127.0.0.1:4173 --only-categories=performance,accessibility,best-practices,seo --output=json --output-path=./lighthouse-report.json --chrome-flags=\"--headless --no-sandbox\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleksandrvasylchenko-ip251-crypto/MedLike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/oleksandrvasylchenko-ip251-crypto/MedLike/issues"
+  },
+  "homepage": "https://github.com/oleksandrvasylchenko-ip251-crypto/MedLike#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
