@@ -138,85 +138,6 @@
     opacity: 0.3;
     cursor: not-allowed;
   }
-
-  /* ===== КАРУСЕЛЬ ЛІКАРІВ - ПЛАНШЕТ (свайп) ===== */
-  .carousel {
-    display: flex !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 20px !important;
-    padding: 10px 15px 20px !important;
-    margin: 0 !important;
-    scroll-behavior: smooth !important;
-    max-width: 100% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  .carousel::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .carousel-item {
-    flex: 0 0 45% !important;
-    max-width: 45% !important;
-    scroll-snap-align: start !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-    display: block !important;
-    margin: 0 !important;
-  }
-
-  .carousel-item img {
-    height: 280px !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
-  }
-
-  .carousel-item h3 {
-    font-size: 15px !important;
-    padding: 14px 15px 4px !important;
-  }
-
-  .carousel-item p {
-    font-size: 13px !important;
-    padding: 0 15px 16px !important;
-  }
-
-  /* Ховаємо кнопки навігації на планшеті */
-  .carousel-controls {
-    display: none !important;
-  }
-
-  .carousel-dots {
-    display: flex !important;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 0 5px;
-    flex-wrap: wrap;
-  }
-
-  .carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--border);
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    padding: 0;
-  }
-
-  .carousel-dot.active {
-    background: var(--primary);
-    width: 24px;
-    border-radius: 4px;
-  }
 }
 
 /* ==================== TABLET: 768px ==================== */
@@ -229,7 +150,6 @@
     padding: 12px 0;
   }
 
-  /* Логотип - вправо */
   .logo {
     order: 2;
     margin-left: auto;
@@ -239,7 +159,6 @@
     width: 100px;
   }
 
-  /* Кнопка гамбургер - зліва */
   .hamburger-menu {
     order: 0;
     display: block !important;
@@ -341,7 +260,6 @@
     padding: 12px 12px 3px;
   }
 
-  /* BACK TO TOP - видима після прокрутки */
   .back-to-top {
     bottom: 80px !important;
     right: 20px !important;
@@ -363,7 +281,6 @@
     height: 28px !important;
   }
 
-  /* ===== CALL BUTTON MOBILE - НА ОДНОМУ РІВНІ З BACK-TO-TOP ===== */
   .call-btn-fixed {
     bottom: 80px !important;
     left: 20px !important;
@@ -384,85 +301,6 @@
     left: -3px !important;
     right: -3px !important;
     bottom: -3px !important;
-  }
-
-  /* ===== КАРУСЕЛЬ ЛІКАРІВ - МОБІЛЬНИЙ (свайп) ===== */
-  .carousel {
-    display: flex !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    gap: 16px !important;
-    padding: 10px 15px 20px !important;
-    margin: 0 !important;
-    scroll-behavior: smooth !important;
-    max-width: 100% !important;
-    grid-template-columns: none !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  .carousel::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .carousel-item {
-    flex: 0 0 85% !important;
-    max-width: 85% !important;
-    scroll-snap-align: start !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-    display: block !important;
-    margin: 0 !important;
-  }
-
-  .carousel-item img {
-    height: 250px !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
-  }
-
-  .carousel-item h3 {
-    font-size: 14px !important;
-    padding: 14px 15px 4px !important;
-  }
-
-  .carousel-item p {
-    font-size: 12px !important;
-    padding: 0 15px 16px !important;
-  }
-
-  /* Ховаємо кнопки навігації на мобільному */
-  .carousel-controls {
-    display: none !important;
-  }
-
-  .carousel-dots {
-    display: flex !important;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 0 5px;
-    flex-wrap: wrap;
-  }
-
-  .carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--border);
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    padding: 0;
-  }
-
-  .carousel-dot.active {
-    background: var(--primary);
-    width: 24px;
-    border-radius: 4px;
   }
 }
 
@@ -758,7 +596,6 @@
     width: 18px;
   }
 
-  /* BACK TO TOP */
   .back-to-top {
     bottom: 70px !important;
     right: 15px !important;
@@ -780,7 +617,6 @@
     height: 24px !important;
   }
 
-  /* ===== CALL BUTTON MOBILE - НА ОДНОМУ РІВНІ ===== */
   .call-btn-fixed {
     bottom: 70px !important;
     left: 15px !important;
@@ -801,35 +637,6 @@
     left: -2px !important;
     right: -2px !important;
     bottom: -2px !important;
-  }
-
-  /* ===== КАРУСЕЛЬ ЛІКАРІВ - МАЛИЙ МОБІЛЬНИЙ ===== */
-  .carousel-item {
-    flex: 0 0 90% !important;
-    max-width: 90% !important;
-  }
-
-  .carousel-item img {
-    height: 220px !important;
-  }
-
-  .carousel-item h3 {
-    font-size: 13px !important;
-    padding: 12px 12px 3px !important;
-  }
-
-  .carousel-item p {
-    font-size: 12px !important;
-    padding: 0 12px 14px !important;
-  }
-
-  .carousel-dot {
-    width: 6px !important;
-    height: 6px !important;
-  }
-
-  .carousel-dot.active {
-    width: 18px !important;
   }
 }
 
@@ -904,23 +711,6 @@
     height: 30px;
     font-size: 12px;
   }
-
-  .carousel-item {
-    flex: 0 0 92% !important;
-    max-width: 92% !important;
-  }
-
-  .carousel-item img {
-    height: 180px !important;
-  }
-
-  .carousel-item h3 {
-    font-size: 12px !important;
-  }
-
-  .carousel-item p {
-    font-size: 11px !important;
-  }
 }
 
 /* ==================== CONTACTS SECTION MOBILE ==================== */
@@ -992,7 +782,6 @@
     min-height: 320px;
   }
 
-  /* ===== СОЦІАЛЬНІ МЕРЕЖІ - ГОРИЗОНТАЛЬНО ===== */
   .social-contacts {
     flex-direction: row;
     justify-content: center;
@@ -1071,7 +860,6 @@
     min-height: 250px;
   }
 
-  /* ===== СОЦІАЛЬНІ МЕРЕЖІ - ГОРИЗОНТАЛЬНО ===== */
   .social-contacts {
     flex-direction: row;
     justify-content: center;

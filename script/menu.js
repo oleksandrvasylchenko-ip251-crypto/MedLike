@@ -100,17 +100,44 @@ function updateActiveNavLink() {
   });
 }
 
+// ===== BACK TO TOP BUTTON =====
 function initBackToTop() {
+  console.log('🔄 initBackToTop викликано');
+  
   const backToTopBtn = document.getElementById("backToTop");
-  if (!backToTopBtn) return;
+  
+  if (!backToTopBtn) {
+    console.error('❌ Кнопка "backToTop" не знайдена!');
+    return;
+  }
 
-  window.addEventListener("scroll", function () {
-    backToTopBtn.classList.toggle("visible", window.scrollY > 300);
-  });
+  console.log('✅ Кнопка знайдена');
 
-  backToTopBtn.addEventListener("click", function () {
+  // Примусово ховаємо
+  backToTopBtn.classList.remove('visible', 'show');
+
+  function toggleButton() {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('visible', 'show');
+      console.log('⬆️ Кнопка показана');
+    } else {
+      backToTopBtn.classList.remove('visible', 'show');
+      console.log('⬇️ Кнопка схована');
+    }
+  }
+
+  window.addEventListener("scroll", toggleButton, { passive: true });
+  window.addEventListener("resize", toggleButton, { passive: true });
+  
+  setTimeout(toggleButton, 100);
+
+  backToTopBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log('⬆️ Кнопка натиснута - скролимо вгору');
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  console.log('✅ Кнопка "Повернутись до гори" активована');
 }
 
 function initSmoothAnchorScroll() {

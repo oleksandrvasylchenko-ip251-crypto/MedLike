@@ -1,136 +1,239 @@
-// ==================== CAROUSEL/SLIDER (ЛІКАРІ) ====================
-let currentSlide = 0;
-let slidesPerView = 3;
-let slides = [];
-let totalSlides = 0;
+// ============================================
+// КАРУСЕЛЬ ЛІКАРІВ - НОВА ВЕРСІЯ
+// ============================================
 
-function getSlidesPerView() {
-  if (window.innerWidth <= 480) return 1;
-  if (window.innerWidth <= 768) return 1;
-  if (window.innerWidth <= 1024) return 2;
-  return 3;
-}
+(function() {
+    'use strict';
 
-function initCarousel() {
-  slides = document.querySelectorAll(".carousel-item");
-  totalSlides = slides.length;
-  if (totalSlides === 0) return;
+    const track = document.getElementById('carouselTrack');
+    const container = document.getElementById('carouselContainer');
+    const dotsContainer = document.getElementById('carouselDots');
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
 
-  slidesPerView = getSlidesPerView();
-  const carousel = document.querySelector(".carousel");
-  const dotsContainer = document.getElementById("carouselDots");
+    if (!track || !container) return;
 
-  if (dotsContainer) {
-    dotsContainer.innerHTML = "";
-  }
+    // ===== СТАН =====
+    const state = {
+        currentIndex: 0,
+        slidesPerView: 3,
+        totalSlides: 0,
+        cardWidth: 0,
+        gap: 30,
+        isAnimating: false
+    };
 
-  // Видаляємо старі кнопки
-  const oldControls = document.querySelector(".carousel-controls");
-  if (oldControls) {
-    oldControls.remove();
-  }
-
-  // Кнопки ТІЛЬКИ для десктопу (>1024px)
-  if (window.innerWidth > 1024) {
-    const controls = document.createElement("div");
-    controls.className = "carousel-controls";
-
-    const prevBtn = document.createElement("button");
-    prevBtn.className = "carousel-btn prev-btn";
-    prevBtn.type = "button";
-    prevBtn.innerHTML = "❮";
-    prevBtn.setAttribute("aria-label", "Попередні лікарі");
-    prevBtn.addEventListener("click", () => goToSlide(currentSlide - slidesPerView));
-
-    const nextBtn = document.createElement("button");
-    nextBtn.className = "carousel-btn next-btn";
-    nextBtn.type = "button";
-    nextBtn.innerHTML = "❯";
-    nextBtn.setAttribute("aria-label", "Наступні лікарі");
-    nextBtn.addEventListener("click", () => goToSlide(currentSlide + slidesPerView));
-
-    const carouselContainer = carousel.parentNode;
-    carouselContainer.classList.add("carousel-wrapper");
-    carouselContainer.appendChild(controls);
-    controls.appendChild(prevBtn);
-    controls.appendChild(nextBtn);
-  }
-
-  // Створюємо точки (для всіх версій)
-  const totalDots = Math.ceil(totalSlides / slidesPerView);
-  for (let i = 0; i < totalDots; i++) {
-    const dot = document.createElement("button");
-    dot.type = "button";
-    dot.className = `carousel-dot ${i === 0 ? "active" : ""}`;
-    dot.setAttribute("aria-label", `Слайд ${i + 1}`);
-    dot.addEventListener("click", () => goToSlide(i * slidesPerView));
-    if (dotsContainer) {
-      dotsContainer.appendChild(dot);
+    // ===== ОТРИМУЄМО КІЛЬКІСТЬ СЛАЙДІВ =====
+    function getSlidesPerView() {
+        const width = window.innerWidth;
+        if (width <= 768) return 1;
+        if (width <= 1024) return 2;
+        return 3;
     }
-  }
 
-  showSlide(0);
-}
+    // ===== ОТРИМУЄМО КАРТКИ =====
+    function getCards() {
+        return Array.from(track.querySelectorAll('.doctor-card'));
+    }
 
-function showSlide(startIndex) {
-  slidesPerView = getSlidesPerView();
+    // ===== РОЗРАХУНОК ШИРИНИ =====
+    function calculateWidths() {
+        const containerWidth = container.offsetWidth;
+        state.slidesPerView = getSlidesPerView();
+        state.gap = window.innerWidth <= 768 ? 20 : 30;
+        
+        const totalGap = state.gap * (state.slidesPerView - 1);
+        state.cardWidth = (containerWidth - totalGap) / state.slidesPerView;
+        
+        return state.cardWidth;
+    }
 
-  // Для десктопу (>1024px) - показуємо всі слайди
-  if (window.innerWidth > 1024) {
-    slides.forEach((slide) => {
-      slide.style.display = "block";
+    // ===== ОНОВЛЕННЯ КАРТОК =====
+    function updateCards() {
+        const cards = getCards();
+        state.totalSlides = cards.length;
+        
+        if (state.totalSlides === 0) return;
+        
+        const cardWidth = calculateWidths();
+        
+        cards.forEach((card, index) => {
+            card.style.flex = `0 0 ${cardWidth}px`;
+            card.style.maxWidth = `${cardWidth}px`;
+        });
+        
+        // Оновлюємо відступ
+        track.style.gap = `${state.gap}px`;
+        
+        // Оновлюємо позицію
+        updatePosition();
+        
+        // Оновлюємо точки
+        updateDots();
+        
+        // Оновлюємо кнопки
+        updateButtons();
+    }
+
+    // ===== ОНОВЛЕННЯ ПОЗИЦІЇ =====
+    function updatePosition() {
+        const cards = getCards();
+        if (cards.length === 0) return;
+        
+        const cardWidth = state.cardWidth;
+        const gap = state.gap;
+        const offset = state.currentIndex * (cardWidth + gap);
+        
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    // ===== ОНОВЛЕННЯ КНОПОК =====
+    function updateButtons() {
+        if (!prevBtn || !nextBtn) return;
+        
+        const total = state.totalSlides;
+        const perView = state.slidesPerView;
+        
+        prevBtn.classList.toggle('is-disabled', state.currentIndex === 0);
+        nextBtn.classList.toggle('is-disabled', state.currentIndex + perView >= total);
+    }
+
+    // ===== ОНОВЛЕННЯ ТОЧОК =====
+    function updateDots() {
+        if (!dotsContainer) return;
+        
+        const totalDots = Math.ceil(state.totalSlides / state.slidesPerView);
+        const activeIndex = Math.floor(state.currentIndex / state.slidesPerView);
+        
+        dotsContainer.innerHTML = '';
+        
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${i === activeIndex ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Слайд ${i + 1}`);
+            dot.addEventListener('click', () => {
+                goTo(i * state.slidesPerView);
+            });
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    // ===== ПЕРЕХІД ДО СЛАЙДУ =====
+    function goTo(index) {
+        if (state.isAnimating) return;
+        
+        const total = state.totalSlides;
+        const perView = state.slidesPerView;
+        
+        // Обмежуємо індекс
+        if (index < 0) index = 0;
+        if (index + perView > total) index = total - perView;
+        if (index < 0) index = 0;
+        
+        state.currentIndex = index;
+        state.isAnimating = true;
+        
+        updatePosition();
+        updateButtons();
+        updateDots();
+        
+        setTimeout(() => {
+            state.isAnimating = false;
+        }, 500);
+    }
+
+    // ===== НАСТУПНИЙ / ПОПЕРЕДНІЙ =====
+    function goToNext() {
+        const perView = state.slidesPerView;
+        const nextIndex = state.currentIndex + perView;
+        if (nextIndex < state.totalSlides) {
+            goTo(nextIndex);
+        }
+    }
+
+    function goToPrev() {
+        const prevIndex = state.currentIndex - state.slidesPerView;
+        if (prevIndex >= 0) {
+            goTo(prevIndex);
+        }
+    }
+
+    // ===== ОБРОБНИКИ КНОПОК =====
+    if (prevBtn) {
+        prevBtn.addEventListener('click', goToPrev);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', goToNext);
+    }
+
+    // ===== СВАЙП НА МОБІЛЬНИХ =====
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let isSwiping = false;
+
+    container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isSwiping = true;
+    }, { passive: true });
+
+    container.addEventListener('touchmove', (e) => {
+        if (!isSwiping) return;
+        // Не блокуємо прокрутку сторінки
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        isSwiping = false;
+        
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                goToNext();
+            } else {
+                goToPrev();
+            }
+        }
+    }, { passive: true });
+
+    // ===== РЕЗАЙЗ =====
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            const newPerView = getSlidesPerView();
+            if (newPerView !== state.slidesPerView) {
+                state.slidesPerView = newPerView;
+                updateCards();
+                // Повертаємо на початок
+                goTo(0);
+            } else {
+                updateCards();
+            }
+        }, 300);
     });
-    // Оновлюємо кнопки
-    updateDesktopButtons(startIndex);
-    return;
-  }
 
-  // Для планшета і мобільного - показуємо через flex + is-visible
-  slides.forEach((slide) => slide.classList.remove("is-visible"));
-
-  const start = startIndex;
-  const end = Math.min(start + slidesPerView, totalSlides);
-
-  for (let i = start; i < end; i++) {
-    if (slides[i]) {
-      slides[i].classList.add("is-visible");
+    // ===== ІНІЦІАЛІЗАЦІЯ =====
+    function init() {
+        updateCards();
+        goTo(0);
     }
-  }
 
-  // Оновлюємо точки
-  const dots = document.querySelectorAll(".carousel-dot");
-  const currentDotIndex = Math.floor(start / slidesPerView);
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === currentDotIndex);
-  });
-}
+    // Запускаємо після завантаження
+    if (document.readyState === 'complete') {
+        init();
+    } else {
+        window.addEventListener('load', init);
+    }
 
-function updateDesktopButtons(startIndex) {
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
+    // Додатковий запуск через DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        // Якщо ще не ініціалізовано
+        if (state.totalSlides === 0) {
+            init();
+        }
+    });
 
-  if (prevBtn) {
-    prevBtn.classList.toggle("is-disabled", startIndex === 0);
-  }
-  if (nextBtn) {
-    const isLast = startIndex + slidesPerView >= totalSlides;
-    nextBtn.classList.toggle("is-disabled", isLast);
-  }
-}
-
-function goToSlide(index) {
-  if (index < 0 || index >= totalSlides) return;
-  currentSlide = index;
-  showSlide(index);
-}
-
-window.addEventListener("resize", function () {
-  if (totalSlides === 0) return;
-  const newSlidesPerView = getSlidesPerView();
-  if (newSlidesPerView !== slidesPerView) {
-    slidesPerView = newSlidesPerView;
-    const dotsContainer = document.getElementById("carouselDots");
-    if (dotsContainer) dotsContainer.innerHTML = "";
-    initCarousel();
-  }
-});
+})();

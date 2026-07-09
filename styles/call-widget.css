@@ -4,12 +4,10 @@
   bottom: 30px;
   left: 30px;
   background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  border: 2px solid #09b9aa;
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  font-size: 28px;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 998;
@@ -24,6 +22,11 @@
   transform: scale(1.1) translateY(-3px);
   box-shadow: 0 8px 35px rgba(9, 185, 170, 0.5);
   background: #07a699;
+  border-color: #07a699;
+}
+
+.call-btn-fixed:hover img {
+  filter: brightness(0) invert(1);
 }
 
 .call-btn-fixed:active {
@@ -35,6 +38,7 @@
   height: 40px;
   object-fit: contain;
   display: block;
+  transition: all 0.3s ease;
 }
 
 /* Пульсація */
@@ -46,7 +50,7 @@
   right: -4px;
   bottom: -4px;
   border-radius: 50%;
-  border: 2px solid var(--primary);
+  border: 2px solid #09b9aa;
   animation: pulse-ring 2s ease-out infinite;
 }
 
@@ -64,7 +68,7 @@
 /* ==================== CALL BUTTON MOBILE ==================== */
 @media (max-width: 768px) {
   .call-btn-fixed {
-    bottom: 80px;
+    bottom: 100px;
     left: 20px;
     width: 48px;
     height: 48px;
@@ -86,7 +90,7 @@
 
 @media (max-width: 480px) {
   .call-btn-fixed {
-    bottom: 70px;
+    bottom: 90px;
     left: 15px;
     width: 42px;
     height: 42px;
@@ -107,7 +111,7 @@
 
 @media (max-width: 380px) {
   .call-btn-fixed {
-    bottom: 65px;
+    bottom: 85px;
     left: 12px;
     width: 38px;
     height: 38px;
@@ -135,7 +139,7 @@
 .call-time-label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--dark);
+  color: #1a1a2e;
   margin-bottom: 12px;
 }
 
@@ -148,25 +152,25 @@
 
 .time-option {
   padding: 8px 18px;
-  border: 2px solid var(--border);
-  background: var(--white);
+  border: 2px solid #e0e0e0;
+  background: #ffffff;
   border-radius: 30px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s;
-  color: var(--text);
+  color: #333333;
 }
 
 .time-option:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: #09b9aa;
+  color: #09b9aa;
 }
 
 .time-option.active {
-  border-color: var(--primary);
-  background: var(--primary);
-  color: var(--white);
+  border-color: #09b9aa;
+  background: #09b9aa;
+  color: #ffffff;
 }
 
 .call-custom-time {
@@ -180,7 +184,7 @@
 .call-custom-time input {
   width: 100px;
   padding: 8px 12px;
-  border: 2px solid var(--border);
+  border: 2px solid #e0e0e0;
   border-radius: 30px;
   font-size: 14px;
   text-align: center;
@@ -188,13 +192,13 @@
 
 .call-custom-time input:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #09b9aa;
 }
 
 .set-time-btn {
   padding: 8px 18px;
-  background: var(--primary);
-  color: var(--white);
+  background: #09b9aa;
+  color: #ffffff;
   border: none;
   border-radius: 30px;
   font-size: 13px;
@@ -228,7 +232,7 @@
 }
 
 .call-modal-content {
-  background: var(--white);
+  background: #ffffff;
   border-radius: 20px;
   max-width: 480px;
   width: 100%;
@@ -265,7 +269,7 @@
 }
 
 .call-modal-close:hover {
-  color: var(--dark);
+  color: #1a1a2e;
 }
 
 .call-modal-header {
@@ -281,13 +285,13 @@
 
 .call-modal-header h2 {
   font-size: 24px;
-  color: var(--dark);
+  color: #1a1a2e;
   margin-bottom: 6px;
 }
 
 .call-modal-header p {
   font-size: 14px;
-  color: var(--light-text);
+  color: #666666;
   line-height: 1.6;
 }
 
@@ -307,12 +311,12 @@
 .call-form-group label {
   font-size: 14px;
   font-weight: 600;
-  color: var(--dark);
+  color: #1a1a2e;
 }
 
 .call-form-group input {
   padding: 14px 18px;
-  border: 2px solid var(--border);
+  border: 2px solid #e0e0e0;
   border-radius: 12px;
   font-size: 16px;
   transition: all 0.3s;
@@ -320,13 +324,13 @@
 
 .call-form-group input:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: #09b9aa;
   box-shadow: 0 0 0 4px rgba(9, 185, 170, 0.1);
 }
 
 .call-submit-btn {
-  background: var(--primary);
-  color: var(--white);
+  background: #09b9aa;
+  color: #ffffff;
   border: none;
   padding: 16px;
   border-radius: 12px;
@@ -364,7 +368,7 @@
 .timer-number {
   font-size: 52px;
   font-weight: 800;
-  color: var(--primary);
+  color: #09b9aa;
   font-family: "Arial", sans-serif;
   letter-spacing: 1px;
 }
@@ -379,14 +383,14 @@
 
 .timer-label {
   font-size: 13px;
-  color: var(--light-text);
+  color: #666666;
   margin-top: 4px;
 }
 
 .timer-progress {
   width: 100%;
   height: 6px;
-  background: var(--border);
+  background: #e0e0e0;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 15px;
@@ -394,7 +398,7 @@
 
 .timer-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), #07a699);
+  background: linear-gradient(90deg, #09b9aa, #07a699);
   border-radius: 10px;
   width: 100%;
   transition: width 1s linear;
@@ -402,12 +406,12 @@
 
 .timer-status {
   font-size: 14px;
-  color: var(--light-text);
+  color: #666666;
   margin-bottom: 12px;
 }
 
 .timer-status.timer-status-done {
-  color: var(--primary);
+  color: #09b9aa;
 }
 
 .timer-cancel-btn {
@@ -424,7 +428,7 @@
 
 .timer-cancel-btn:hover {
   background: #e74c3c;
-  color: var(--white);
+  color: #ffffff;
 }
 
 /* ==================== CALL MODAL MOBILE ==================== */
