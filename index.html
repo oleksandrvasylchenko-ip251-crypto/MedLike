@@ -18,8 +18,23 @@
       href="images/web/icons8-asclepius-glyph-neue-32.png"
     />
 
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="styles/mobile.css" />
+    <!-- Базові стилі -->
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <!-- Стилі секцій (порядок відповідає документу) -->
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/hero.css" />
+    <link rel="stylesheet" href="styles/booking.css" />
+    <link rel="stylesheet" href="styles/services.css" />
+    <link rel="stylesheet" href="styles/doctors.css" />
+    <link rel="stylesheet" href="styles/gallery.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/contacts.css" />
+    <link rel="stylesheet" href="styles/news.css" />
+    <link rel="stylesheet" href="styles/call-widget.css" />
+    <!-- Адаптивність -->
+    <link rel="stylesheet" href="styles/media.css" />
+    <link rel="stylesheet" href="styles/responsive-extra.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -41,7 +56,7 @@
             <a href="#gallery">Галерея</a>
             <a href="#news">Новини</a>
             <a href="#contacts">Контакти</a>
-            <button class="cta-btn" onclick="scrollToBooking()">
+            <button class="cta-btn" data-action="scroll-to-booking">
               Записатися
             </button>
           </nav>
@@ -58,13 +73,27 @@
     <section id="booking" class="booking">
       <div class="container">
         <h2>Записатися на прийом</h2>
-        <form class="booking-form" onsubmit="handleBooking(event)">
+        <form class="booking-form" id="bookingForm" name="bookingForm">
           <div class="form-row">
-            <input type="text" placeholder="Ім'я та Прізвище" required />
-            <input type="tel" placeholder="Телефон" required />
+            <input
+              type="text"
+              id="bookingName"
+              name="name"
+              placeholder="Ім'я та Прізвище"
+              autocomplete="name"
+              required
+            />
+            <input
+              type="tel"
+              id="bookingPhone"
+              name="phone"
+              placeholder="Телефон"
+              autocomplete="tel"
+              required
+            />
           </div>
           <div class="form-row">
-            <select required>
+            <select id="bookingService" name="service" required>
               <option value="">Виберіть послугу</option>
               <option value="ophthalmology">Офтальмологія</option>
               <option value="surgery">Хірургія</option>
@@ -72,7 +101,12 @@
               <option value="vaccination">Вакцинація</option>
               <option value="consultation">Консультація</option>
             </select>
-            <input type="text" placeholder="Побажання (необов'язково)" />
+            <input
+              type="text"
+              id="bookingNote"
+              name="note"
+              placeholder="Побажання (необов'язково)"
+            />
           </div>
           <button type="submit" class="cta-btn">Надіслати</button>
         </form>
@@ -86,8 +120,8 @@
 
         <div class="services-grid">
           <!-- 1. Консультації спеціалістів -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="40"
               height="40"
               src="https://img.icons8.com/ultraviolet/40/doctor-female.png"
@@ -112,8 +146,8 @@
           </div>
 
           <!-- 2. Офтальмологія -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="100"
               height="100"
               src="https://img.icons8.com/blueprint/100/visible.png"
@@ -142,8 +176,8 @@
           </div>
 
           <!-- 3. Хірургія -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="64"
               height="64"
               src="https://img.icons8.com/external-icongeek26-outline-colour-icongeek26/64/external-surgeon-dental-icongeek26-outline-colour-icongeek26-2.png"
@@ -168,8 +202,8 @@
           </div>
 
           <!-- 4. Естетична медицина -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="64"
               height="64"
               src="https://img.icons8.com/nolan/64/makeup-bag.png"
@@ -198,8 +232,8 @@
           </div>
 
           <!-- 5. Ультразвукові дослідження -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="48"
               height="48"
               src="https://img.icons8.com/pulsar-gradient/48/ultrasound.png"
@@ -224,8 +258,8 @@
           </div>
 
           <!-- 6. Вакцинація -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="60"
               height="60"
               src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/60/external-syringe-coronavirus-vitaliy-gorbachev-blue-vitaly-gorbachev.png"
@@ -250,8 +284,8 @@
           </div>
 
           <!-- 7. Спеціальні пропозиції -->
-          <div class="service-card" onclick="toggleService(this)">
-            <img
+          <div class="service-card" tabindex="0" role="button">
+            <img loading="lazy" decoding="async"
               width="64"
               height="64"
               src="https://img.icons8.com/nolan/64/sale-price-tag.png"
@@ -294,7 +328,7 @@
         </div>
         <div class="carousel">
           <div class="carousel-item">
-            <img
+            <img loading="lazy" decoding="async"
               src="images/IMG_7949_NEW_C_-te1.webp"
               alt="Коновал Ігор Олексійович"
             />
@@ -302,12 +336,12 @@
             <p>Офтальмолог, Офтальмохірург</p>
           </div>
           <div class="carousel-item">
-            <img src="images/IMG_7960_NEW_C.webp" alt="Чекіт Оксана" />
+            <img loading="lazy" decoding="async" src="images/IMG_7960_NEW_C.webp" alt="Чекіт Оксана" />
             <h3>Чекіт Оксана Василівна</h3>
             <p>Головний лікар, Дерматовенеролог, Косметолог</p>
           </div>
           <div class="carousel-item">
-            <img
+            <img loading="lazy" decoding="async"
               src="images/IMG_7951_NEW_C_-te1.webp"
               alt="Дмитрів Ірина Володимирівна"
             />
@@ -315,7 +349,7 @@
             <p>Хірург, Судинний хірург</p>
           </div>
           <div class="carousel-item">
-            <img
+            <img loading="lazy" decoding="async"
               src="images/IMG_7942_NEW_C_-te1.webp"
               alt="Засідкович Валентина"
             />
@@ -323,18 +357,18 @@
             <p>Психіатр</p>
           </div>
           <div class="carousel-item">
-            <img src="images/IMG_7944_NEW_C_-te1.webp" alt="Пуковська Галина" />
+            <img loading="lazy" decoding="async" src="images/IMG_7944_NEW_C_-te1.webp" alt="Пуковська Галина" />
             <h3>Пуковська Галина Василівна</h3>
             <p>Терапевт</p>
           </div>
           <div class="carousel-item">
-            <img src="images/IMG_7932_NEW_c_-te1.webp" alt="Юркевич Надія" />
+            <img loading="lazy" decoding="async" src="images/IMG_7932_NEW_c_-te1.webp" alt="Юркевич Надія" />
             <h3>Юркевич Надія Іванівна</h3>
             <p>Педіатр</p>
           </div>
 
           <div class="carousel-item">
-            <img
+            <img loading="lazy" decoding="async"
               src="images/IMG_7955_NEW_C_-te1.webp"
               alt="Романчук Світлана"
             />
@@ -342,7 +376,7 @@
             <p>Дерматовенеролог, Косметолог</p>
           </div>
           <div class="carousel-item">
-            <img
+            <img loading="lazy" decoding="async"
               src="images/IMG_7936_NEW_C_-te1.webp"
               alt="Русінова Христина"
             />
@@ -475,7 +509,7 @@
           <!-- Новина 1 -->
           <article class="news-card" data-category="clinic">
             <div class="news-image">
-              <img src="images/DSCF6490-min-scaled_-te1.webp" alt="Новина 1" />
+              <img loading="lazy" decoding="async" src="images/DSCF6490-min-scaled_-te1.webp" alt="Новина 1" />
               <span class="news-date">15 червня 2026</span>
             </div>
             <div class="news-content">
@@ -491,7 +525,7 @@
           <!-- Новина 2 -->
           <article class="news-card" data-category="services">
             <div class="news-image">
-              <img src="images/DSCF6500-min-scaled_-te1.webp" alt="Новина 2" />
+              <img loading="lazy" decoding="async" src="images/DSCF6500-min-scaled_-te1.webp" alt="Новина 2" />
               <span class="news-date">10 червня 2026</span>
             </div>
             <div class="news-content">
@@ -507,7 +541,7 @@
           <!-- Новина 3 -->
           <article class="news-card" data-category="events">
             <div class="news-image">
-              <img src="images/DSCF6506-min-scaled_-te1.webp" alt="Новина 3" />
+              <img loading="lazy" decoding="async" src="images/DSCF6506-min-scaled_-te1.webp" alt="Новина 3" />
               <span class="news-date">5 червня 2026</span>
             </div>
             <div class="news-content">
@@ -523,7 +557,7 @@
           <!-- Новина 4 -->
           <article class="news-card" data-category="clinic">
             <div class="news-image">
-              <img src="images/DSCF6512-min-scaled_-te1.webp" alt="Новина 4" />
+              <img loading="lazy" decoding="async" src="images/DSCF6512-min-scaled_-te1.webp" alt="Новина 4" />
               <span class="news-date">1 червня 2026</span>
             </div>
             <div class="news-content">
@@ -539,7 +573,7 @@
           <!-- Новина 5 -->
           <article class="news-card" data-category="services">
             <div class="news-image">
-              <img src="images/DSCF6520-min-scaled_-te1.webp" alt="Новина 5" />
+              <img loading="lazy" decoding="async" src="images/DSCF6520-min-scaled_-te1.webp" alt="Новина 5" />
               <span class="news-date">25 травня 2026</span>
             </div>
             <div class="news-content">
@@ -555,7 +589,7 @@
           <!-- Новина 6 -->
           <article class="news-card" data-category="events">
             <div class="news-image">
-              <img src="images/DSCF6534-min-scaled_-te1.webp" alt="Новина 6" />
+              <img loading="lazy" decoding="async" src="images/DSCF6534-min-scaled_-te1.webp" alt="Новина 6" />
               <span class="news-date">20 травня 2026</span>
             </div>
             <div class="news-content">
@@ -585,7 +619,7 @@
           <!-- Ліва частина - контактна інформація -->
           <div class="contacts-info">
             <div class="contact-block address-block">
-              <img
+              <img loading="lazy" decoding="async"
                 width="64"
                 height="64"
                 src="https://img.icons8.com/nolan/64/marker.png"
@@ -604,7 +638,7 @@
             </div>
 
             <div class="contact-block phone-block">
-              <img
+              <img loading="lazy" decoding="async"
                 width="64"
                 height="64"
                 src="https://img.icons8.com/nolan/64/phone.png"
@@ -618,7 +652,7 @@
             </div>
 
             <div class="contact-block social-block">
-              <img
+              <img loading="lazy" decoding="async"
                 width="64"
                 height="64"
                 src="https://img.icons8.com/nolan/64/iphone-x.png"
@@ -632,7 +666,7 @@
                     target="_blank"
                     class="social-link instagram"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       width="32"
                       height="32"
                       src="https://img.icons8.com/nolan/64/instagram-new.png"
@@ -644,7 +678,7 @@
                     target="_blank"
                     class="social-link facebook"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       width="32"
                       height="32"
                       src="https://img.icons8.com/nolan/64/facebook.png"
@@ -656,7 +690,7 @@
                     target="_blank"
                     class="social-link gmail"
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       width="32"
                       height="32"
                       src="https://img.icons8.com/nolan/64/gmail.png"
@@ -668,7 +702,7 @@
             </div>
 
             <div class="contact-block hours-block">
-              <img
+              <img loading="lazy" decoding="async"
                 width="64"
                 height="64"
                 src="https://img.icons8.com/nolan/64/ok--v2.png"
@@ -712,7 +746,7 @@
     </section>
 
     <!-- FOOTER/CONTACTS -->
-    <footer id="contacts" class="footer">
+    <footer class="footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
@@ -724,7 +758,7 @@
                 target="_blank"
                 class="social-link instagram"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   width="32"
                   height="32"
                   src="https://img.icons8.com/nolan/64/instagram-new.png"
@@ -736,7 +770,7 @@
                 target="_blank"
                 class="social-link facebook"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   width="32"
                   height="32"
                   src="https://img.icons8.com/nolan/64/facebook.png"
@@ -748,7 +782,7 @@
                 target="_blank"
                 class="social-link gmail"
               >
-                <img
+                <img loading="lazy" decoding="async"
                   width="32"
                   height="32"
                   src="https://img.icons8.com/nolan/64/gmail.png"
@@ -786,7 +820,7 @@
 
     <!-- BACK TO TOP BUTTON -->
     <button class="back-to-top" id="backToTop" aria-label="Повернутися вгору">
-      <img
+      <img loading="lazy" decoding="async"
         width="48"
         height="48"
         src="https://img.icons8.com/pulsar-gradient/48/circled-up.png"
@@ -794,17 +828,26 @@
       />
     </button>
 
-    <script src="script/script.js"></script>
+    <script src="script/api.js"></script>
+    <script src="script/validation.js"></script>
+    <script src="script/menu.js"></script>
+    <script src="script/carousel.js"></script>
+    <script src="script/gallery.js"></script>
+    <script src="script/services.js"></script>
+    <script src="script/news.js"></script>
+    <script src="script/booking.js"></script>
+    <script src="script/call-widget.js"></script>
+    <script src="script/main.js"></script>
 
     <!-- CALL MODAL -->
     <div class="call-modal" id="callModal">
       <div class="call-modal-content">
-        <button class="call-modal-close" onclick="closeCallModal()">✕</button>
+        <button class="call-modal-close" data-action="close-call-modal" aria-label="Закрити">✕</button>
 
         <!-- Заголовок -->
         <div class="call-modal-header">
           <span class="call-modal-icon"
-            ><img
+            ><img loading="lazy" decoding="async"
               width="64"
               height="64"
               src="https://img.icons8.com/nolan/64/phone.png"
@@ -831,14 +874,14 @@
               min="1"
               max="120"
             />
-            <button class="set-time-btn" onclick="setCustomTime()">
+            <button type="button" class="set-time-btn" data-action="set-custom-time">
               Встановити
             </button>
           </div>
         </div>
 
         <!-- Форма -->
-        <form class="call-modal-form" onsubmit="submitPhone(event)">
+        <form class="call-modal-form" id="callModalForm" name="callModalForm">
           <div class="call-form-group">
             <label for="callPhone">Ваш номер телефону</label>
             <input
@@ -863,7 +906,7 @@
             <div class="timer-progress-bar" id="timerProgressBar"></div>
           </div>
           <p class="timer-status" id="timerStatus">⏳ Очікуємо дзвінка...</p>
-          <button class="timer-cancel-btn" onclick="cancelTimer()">
+          <button type="button" class="timer-cancel-btn" data-action="cancel-timer">
             Скасувати
           </button>
         </div>
@@ -872,12 +915,13 @@
 
     <!-- CALL BUTTON FIXED -->
     <button
+      type="button"
       class="call-btn-fixed"
-      onclick="openCallModal()"
+      data-action="open-call-modal"
       aria-label="Зателефонувати"
     >
-      <!-- <img width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/> -->
-      <img
+      <!-- <img loading="lazy" decoding="async" width="64" height="64" src="https://img.icons8.com/nolan/64/phone.png" alt="phone"/> -->
+      <img loading="lazy" decoding="async"
         width="64"
         height="64"
         src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/external-phone-medical-kiranshastry-gradient-kiranshastry.png"

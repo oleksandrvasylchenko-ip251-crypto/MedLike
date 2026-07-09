@@ -1,0 +1,18 @@
+{
+  "name": "medlike-server",
+  "version": "1.0.0",
+  "description": "MedLike backend: Express API + MySQL + Telegram bot notifications (scaffold, потребує налаштування).",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.10.0",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5",
+    "node-telegram-bot-api": "^0.66.0"
+  }
+}

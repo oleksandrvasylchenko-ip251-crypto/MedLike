@@ -4,15 +4,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .carousel {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-  }
-
-  .carousel-item img {
-    height: 280px;
-  }
-
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
@@ -147,6 +138,85 @@
     opacity: 0.3;
     cursor: not-allowed;
   }
+
+  /* ===== КАРУСЕЛЬ ЛІКАРІВ - ПЛАНШЕТ (свайп) ===== */
+  .carousel {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 20px !important;
+    padding: 10px 15px 20px !important;
+    margin: 0 !important;
+    scroll-behavior: smooth !important;
+    max-width: 100% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .carousel-item {
+    flex: 0 0 45% !important;
+    max-width: 45% !important;
+    scroll-snap-align: start !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .carousel-item img {
+    height: 280px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+  }
+
+  .carousel-item h3 {
+    font-size: 15px !important;
+    padding: 14px 15px 4px !important;
+  }
+
+  .carousel-item p {
+    font-size: 13px !important;
+    padding: 0 15px 16px !important;
+  }
+
+  /* Ховаємо кнопки навігації на планшеті */
+  .carousel-controls {
+    display: none !important;
+  }
+
+  .carousel-dots {
+    display: flex !important;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0 5px;
+    flex-wrap: wrap;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+  }
+
+  .carousel-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
+  }
 }
 
 /* ==================== TABLET: 768px ==================== */
@@ -228,18 +298,6 @@
     grid-template-columns: 1fr;
   }
 
-  .carousel {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .carousel-item img {
-    height: 250px;
-  }
-
   .footer-content {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -258,18 +316,8 @@
   }
 
   .about h2,
-  .doctors h2,
-  .gallery h2,
-  .booking h2 {
-    font-size: 28px;
-  }
-
   .service-card h3 {
     font-size: 16px;
-  }
-
-  .carousel-item h3 {
-    font-size: 14px;
   }
 
   .service-item {
@@ -295,21 +343,126 @@
 
   /* BACK TO TOP - видима після прокрутки */
   .back-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 18px;
+    bottom: 80px !important;
+    right: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 18px !important;
     opacity: 0;
     visibility: hidden;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .back-to-top.visible {
     opacity: 1;
     visibility: visible;
+  }
+
+  .back-to-top img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* ===== CALL BUTTON MOBILE - НА ОДНОМУ РІВНІ З BACK-TO-TOP ===== */
+  .call-btn-fixed {
+    bottom: 80px !important;
+    left: 20px !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 0 !important;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .call-btn-fixed img {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .call-btn-fixed::before {
+    top: -3px !important;
+    left: -3px !important;
+    right: -3px !important;
+    bottom: -3px !important;
+  }
+
+  /* ===== КАРУСЕЛЬ ЛІКАРІВ - МОБІЛЬНИЙ (свайп) ===== */
+  .carousel {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 16px !important;
+    padding: 10px 15px 20px !important;
+    margin: 0 !important;
+    scroll-behavior: smooth !important;
+    max-width: 100% !important;
+    grid-template-columns: none !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .carousel-item {
+    flex: 0 0 85% !important;
+    max-width: 85% !important;
+    scroll-snap-align: start !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .carousel-item img {
+    height: 250px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+  }
+
+  .carousel-item h3 {
+    font-size: 14px !important;
+    padding: 14px 15px 4px !important;
+  }
+
+  .carousel-item p {
+    font-size: 12px !important;
+    padding: 0 15px 16px !important;
+  }
+
+  /* Ховаємо кнопки навігації на мобільному */
+  .carousel-controls {
+    display: none !important;
+  }
+
+  .carousel-dots {
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0 5px;
+    flex-wrap: wrap;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    padding: 0;
+  }
+
+  .carousel-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
   }
 }
 
@@ -475,32 +628,12 @@
   .doctors h2,
   .gallery h2,
   .booking h2 {
-    font-size: 22px;
     margin-bottom: 30px;
   }
 
   .services-grid {
     grid-template-columns: 1fr;
     gap: 15px;
-  }
-
-  .carousel {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  .carousel-item img {
-    height: 220px;
-  }
-
-  .carousel-item h3 {
-    font-size: 13px;
-    padding: 12px;
-  }
-
-  .carousel-item p {
-    font-size: 12px;
-    padding: 0 12px 12px;
   }
 
   .booking-form {
@@ -583,16 +716,6 @@
     font-size: 12px;
   }
 
-  .carousel-dots {
-    padding: 15px;
-  }
-
-  .carousel-dot {
-    width: 8px;
-    height: 8px;
-    margin: 0 5px;
-  }
-
   .gallery-accordion {
     height: 260px;
     gap: 10px;
@@ -637,21 +760,111 @@
 
   /* BACK TO TOP */
   .back-to-top {
-    bottom: 15px;
-    right: 15px;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    bottom: 70px !important;
+    right: 15px !important;
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 16px !important;
     opacity: 0;
     visibility: hidden;
-    transition:
-      opacity 0.3s ease,
-      visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   .back-to-top.visible {
     opacity: 1;
     visibility: visible;
+  }
+
+  .back-to-top img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* ===== CALL BUTTON MOBILE - НА ОДНОМУ РІВНІ ===== */
+  .call-btn-fixed {
+    bottom: 70px !important;
+    left: 15px !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .call-btn-fixed img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .call-btn-fixed::before {
+    top: -2px !important;
+    left: -2px !important;
+    right: -2px !important;
+    bottom: -2px !important;
+  }
+
+  /* ===== КАРУСЕЛЬ ЛІКАРІВ - МАЛИЙ МОБІЛЬНИЙ ===== */
+  .carousel-item {
+    flex: 0 0 90% !important;
+    max-width: 90% !important;
+  }
+
+  .carousel-item img {
+    height: 220px !important;
+  }
+
+  .carousel-item h3 {
+    font-size: 13px !important;
+    padding: 12px 12px 3px !important;
+  }
+
+  .carousel-item p {
+    font-size: 12px !important;
+    padding: 0 12px 14px !important;
+  }
+
+  .carousel-dot {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  .carousel-dot.active {
+    width: 18px !important;
+  }
+}
+
+/* ==================== VERY SMALL: 380px ==================== */
+@media (max-width: 380px) {
+  .back-to-top {
+    bottom: 65px !important;
+    right: 12px !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .back-to-top img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .call-btn-fixed {
+    bottom: 65px !important;
+    left: 12px !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+  }
+
+  .call-btn-fixed img {
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  .call-btn-fixed::before {
+    top: -2px !important;
+    left: -2px !important;
+    right: -2px !important;
+    bottom: -2px !important;
   }
 }
 
@@ -671,12 +884,6 @@
   }
 
   .about h2,
-  .doctors h2,
-  .gallery h2,
-  .booking h2 {
-    font-size: 18px;
-  }
-
   .gallery-accordion {
     height: 200px;
     gap: 8px;
@@ -696,6 +903,23 @@
     width: 30px;
     height: 30px;
     font-size: 12px;
+  }
+
+  .carousel-item {
+    flex: 0 0 92% !important;
+    max-width: 92% !important;
+  }
+
+  .carousel-item img {
+    height: 180px !important;
+  }
+
+  .carousel-item h3 {
+    font-size: 12px !important;
+  }
+
+  .carousel-item p {
+    font-size: 11px !important;
   }
 }
 
@@ -722,7 +946,6 @@
   }
 
   .contacts-section h2 {
-    font-size: 28px;
     margin-bottom: 30px;
   }
 
@@ -808,7 +1031,6 @@
   }
 
   .contacts-section h2 {
-    font-size: 22px;
     margin-bottom: 25px;
   }
 
@@ -919,7 +1141,6 @@
   }
 
   .news-section h2 {
-    font-size: 28px;
     margin-bottom: 15px;
   }
 
@@ -974,7 +1195,6 @@
   }
 
   .news-section h2 {
-    font-size: 22px;
     margin-bottom: 10px;
   }
 
@@ -1011,31 +1231,6 @@
   .news-all-btn .cta-btn {
     padding: 12px 30px;
     font-size: 14px;
-  }
-}
-
-/* ==================== CALL BUTTON MOBILE - ЗАВЖДИ ВИДНА ==================== */
-@media (max-width: 768px) {
-  .call-btn-fixed {
-    bottom: 80px;
-    left: 20px;
-    width: 54px;
-    height: 54px;
-    font-size: 24px;
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@media (max-width: 480px) {
-  .call-btn-fixed {
-    bottom: 65px;
-    left: 15px;
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
-    opacity: 1;
-    visibility: visible;
   }
 }
 

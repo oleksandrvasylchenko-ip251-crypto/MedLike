@@ -13,20 +13,40 @@
 
 medlayk-final/
 │
-├── 📄 index.html                 (Основна сторінка - весь контент)
+├── 📄 index.html                 (Основна сторінка - весь контент, розмітка не змінена)
 │
-├── 📁 styles/
-│   ├── styles.css               (Основні стилі + кольорова палітра Medlayk)
-│   └── mobile.css               (Адаптивні стилі для всіх пристроїв)
+├── 📁 styles/                     (розбито на модулі під час аудиту 2026)
+│   ├── variables.css             (CSS-змінні :root — кольори, шрифти)
+│   ├── reset.css                 (reset + глобальні утиліти анімацій/валідації)
+│   ├── header.css
+│   ├── hero.css
+│   ├── booking.css
+│   ├── services.css
+│   ├── doctors.css
+│   ├── gallery.css
+│   ├── footer.css
+│   ├── contacts.css
+│   ├── news.css
+│   ├── call-widget.css
+│   ├── media.css                 (медіа-запити 1024/768/480/380/320px)
+│   └── responsive-extra.css      (додаткові контрольні ширини 820/1280/1440/1920px)
 │
-├── 📁 script/
-│   └── script.js                (Функціональність: слайдери, форми, валідація)
+├── 📁 script/                      (розбито на ES-модулі під час аудиту 2026)
+│   ├── main.js                   (точка входу, ініціалізація)
+│   ├── menu.js                   (бургер-меню, sticky header, активне посилання)
+│   ├── carousel.js               (карусель лікарів)
+│   ├── gallery.js                (галерея: акордеон/свайп)
+│   ├── services.js               (розгортання карток послуг)
+│   ├── news.js                   (фільтр новин, reveal-on-scroll)
+│   ├── booking.js                (форма запису)
+│   ├── call-widget.js            (модалка зворотного дзвінка + таймер)
+│   ├── validation.js             (валідація полів, маска телефону)
+│   └── api.js                    (fetch-заготовки для майбутнього бекенду)
 │
-├── 📁 images/                   (93 фото + SVG логотип)
-│   ├── DSCF*.webp              (Фото з галереї - 8 шт)
-│   ├── IMG_*.webp              (Фото лікарів + послуг - 45+ шт)
-│   ├── 7844_Panorama*.webp     (Панорами офісу)
-│   └── medlayk_logo*.svg       (Логотип SVG)
+├── 📁 server/                      (НОВЕ: заготовка Node.js + Express + MySQL + Telegram Bot)
+│   └── див. server/README.md — інструкція запуску та статус
+│
+├── 📁 images/                   (93 фото + SVG логотип — без змін)
 │
 └── 📄 README.md                 (Інструкції розгортання)
 

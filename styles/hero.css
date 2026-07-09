@@ -1,0 +1,11 @@
+/* ==================== HERO SECTION ==================== */
+.hero {
+  background-image: url("../images/ed.webp");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+  padding: clamp(80px, 22vw, 400px) clamp(15px, 4vw, 20px);
+  text-align: center;
+}
+
