@@ -40,8 +40,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ ok: false, message: "Внутрішня помилка сервера." });
 });
 
-registerTelegramCallbacks();
+function startServer() {
+  registerTelegramCallbacks();
+  return app.listen(PORT, () => {
+    console.log(`✅ MedLike API запущено на порту ${PORT}`);
+  });
+}
 
-app.listen(PORT, () => {
-  console.log(`✅ MedLike API запущено на порту ${PORT}`);
-});
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = { app, startServer };
