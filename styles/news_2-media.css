@@ -1,0 +1,175 @@
+/* ============================================
+   СТОРІНКА НОВИН - МОБІЛЬНА АДАПТАЦІЯ
+   Файл: news_2-media.css
+   ============================================ */
+
+/* ============================================
+   ПЛАНШЕТ (768px - 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .news-page {
+    padding: 110px 15px 40px;
+  }
+  
+  .news-article-full {
+    padding: 30px;
+    margin-bottom: 35px;
+  }
+  
+  .article-header h2 {
+    font-size: 24px;
+  }
+  
+  .article-image {
+    height: 280px;
+  }
+}
+
+/* ============================================
+   МОБІЛЬНИЙ (до 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .news-page {
+    padding: 100px 12px 30px;
+  }
+  
+  .news-page h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .back-to-news {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .news-article-full {
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+  }
+  
+  .article-header h2 {
+    font-size: 20px;
+  }
+  
+  .article-meta {
+    gap: 12px;
+    font-size: 13px;
+  }
+  
+  .article-category {
+    font-size: 12px;
+    padding: 2px 12px;
+  }
+  
+  .article-image {
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+  .article-body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  
+  .article-body ul {
+    padding-left: 20px;
+  }
+}
+
+/* ============================================
+   МАЛЕНЬКІ ТЕЛЕФОНИ (до 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .news-page {
+    padding: 90px 10px 20px;
+  }
+  
+  .news-page h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .back-to-news {
+    font-size: 13px;
+  }
+  
+  .news-article-full {
+    padding: 16px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
+  
+  .article-header h2 {
+    font-size: 17px;
+  }
+  
+  .article-meta {
+    gap: 8px;
+    font-size: 12px;
+  }
+  
+  .article-category {
+    font-size: 11px;
+    padding: 2px 10px;
+  }
+  
+  .article-image {
+    height: 160px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .article-body {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .article-body p {
+    margin-bottom: 10px;
+  }
+  
+  .article-body ul {
+    padding-left: 18px;
+  }
+  
+  .article-body ul li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+
+/* ============================================
+   ДУЖЕ МАЛЕНЬКІ ТЕЛЕФОНИ (до 380px)
+   ============================================ */
+@media (max-width: 380px) {
+  .news-page {
+    padding: 80px 8px 15px;
+  }
+  
+  .news-page h1 {
+    font-size: 20px;
+  }
+  
+  .news-article-full {
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .article-header h2 {
+    font-size: 15px;
+  }
+  
+  .article-image {
+    height: 140px;
+  }
+  
+  .article-body {
+    font-size: 13px;
+  }
+  
+  .article-body ul li {
+    font-size: 13px;
+  }
+}

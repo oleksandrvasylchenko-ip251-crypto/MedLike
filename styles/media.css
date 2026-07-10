@@ -304,13 +304,13 @@
   }
 }
 
-    .paragraph-text {
+    /* .paragraph-text {
     margin-bottom: 30px;
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 25px;
     padding: 0 10px;
-  }
+  } */
 
 /* ==================== МОБІЛЬНА ГАЛЕРЕЯ (свайп) ==================== */
 @media (max-width: 768px) {
@@ -647,13 +647,13 @@
     bottom: -2px !important;
   }
 }
-  .paragraph-text {
+  /* .paragraph-text {
     margin-bottom: 20px;
     font-size: 13px;
     line-height: 1.4;
     margin-bottom: 20px;
     padding: 0 5px;
-  }
+  } */
 
 /* ==================== VERY SMALL: 380px ==================== */
 @media (max-width: 380px) {
