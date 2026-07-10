@@ -304,6 +304,10 @@
   }
 }
 
+    .paragraph-text {
+    margin-bottom: 30px;
+  }
+
 /* ==================== МОБІЛЬНА ГАЛЕРЕЯ (свайп) ==================== */
 @media (max-width: 768px) {
   .gallery-accordion {
@@ -639,6 +643,9 @@
     bottom: -2px !important;
   }
 }
+  .paragraph-text {
+    margin-bottom: 20px;
+  }
 
 /* ==================== VERY SMALL: 380px ==================== */
 @media (max-width: 380px) {
