@@ -1,0 +1,140 @@
+/* ==================== ABOUT SECTION ==================== */
+.about {
+  padding: 80px 20px;
+  background: var(--white);
+}
+
+.about h2 {
+  text-align: center;
+  font-size: clamp(20px, 4.5vw, 40px);
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: var(--light-bg);
+  padding: 30px 30px 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.service-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(9, 185, 170, 0.15);
+}
+
+.service-card.active {
+  border-color: var(--primary);
+  background: #f0fcfb;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(9, 185, 170, 0.2);
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+/* Деталі послуг */
+.service-details {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.3s ease,
+    margin 0.3s ease,
+    padding 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+  text-align: left;
+  background: white;
+  border-radius: 8px;
+  padding: 0 15px;
+}
+
+.service-card.active .service-details {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 20px;
+  padding: 15px 15px 5px;
+  border-top: 2px solid var(--primary);
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.service-name {
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.service-price {
+  color: var(--primary);
+  font-weight: 600;
+  background: #e8f8f6;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.service-card::after {
+  content: "▼";
+  position: absolute;
+  bottom: 12px;
+  right: 20px;
+  font-size: 14px;
+  color: var(--primary);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover::after {
+  opacity: 0.6;
+}
+
+.service-card.active::after {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.service-card .click-hint {
+  display: block;
+  font-size: 11px;
+  color: var(--light-text);
+  margin-top: 10px;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover .click-hint {
+  opacity: 1;
+}
+
+.service-card.active .click-hint {
+  opacity: 0;
+}
+

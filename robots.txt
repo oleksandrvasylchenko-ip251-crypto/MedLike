@@ -1,0 +1,31 @@
+# robots.txt для МЕДЛАЙК
+# Дозвіл для всіх пошукових роботів
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /styles/
+Allow: /script/
+Allow: /images/
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json
+Disallow: /*.config
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+
+# Sitemap
+Sitemap: https://medlayk.center/sitemap.xml

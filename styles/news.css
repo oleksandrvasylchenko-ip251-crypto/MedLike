@@ -1,0 +1,151 @@
+/* ==================== NEWS SECTION ==================== */
+.news-section {
+  padding: 80px 20px;
+  background: var(--white);
+}
+
+.news-section h2 {
+  text-align: center;
+  font-size: clamp(20px, 4.5vw, 40px);
+  margin-bottom: 20px;
+  color: var(--dark);
+}
+
+/* Навігація новин */
+.news-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.news-nav-btn {
+  padding: 10px 28px;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.news-nav-btn:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.news-nav-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* Сітка новин */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Картка новини */
+.news-card {
+  background: var(--white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(9, 185, 170, 0.08);
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(9, 185, 170, 0.15);
+}
+
+.news-card.hidden {
+  display: none;
+}
+
+/* Зображення новини */
+.news-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-date {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: var(--primary);
+  color: var(--white);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Контент новини */
+.news-content {
+  padding: 20px 22px 25px;
+}
+
+.news-content h3 {
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.news-content p {
+  font-size: 14px;
+  color: var(--light-text);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.news-read-more {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.news-read-more:hover {
+  color: #07a699;
+  gap: 10px;
+}
+
+/* Кнопка "Всі новини" */
+.news-all-btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.news-all-btn .cta-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
