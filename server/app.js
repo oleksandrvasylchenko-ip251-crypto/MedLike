@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 console.log("🚀 Початок завантаження сервера...");
 
 require("dotenv").config();
@@ -36,6 +37,30 @@ app.use(
 );
 app.use(express.json());
 
+=======
+// app.js
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
+
+const bookingRoutes = require("./routes/bookingRoutes");
+const callRequestRoutes = require("./routes/callRequestRoutes");
+const { registerTelegramCallbacks } = require("./config/telegramCallbacks");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_ORIGIN || "*",
+  }),
+);
+app.use(express.json());
+
+// Клієнтський статичний сайт (client/) — за бажанням можна віддавати
+// той самий Express-сервер, або залишити фронтенд на окремому хостингу.
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 app.use(express.static(path.join(__dirname, "..")));
 
 app.get("/api/health", (req, res) => {
@@ -45,15 +70,24 @@ app.get("/api/health", (req, res) => {
 app.use("/api/booking", bookingRoutes);
 app.use("/api/call-request", callRequestRoutes);
 
+<<<<<<< HEAD
+=======
+// Обробка невідомих /api/* маршрутів
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 app.use("/api", (req, res) => {
   res.status(404).json({ ok: false, message: "Маршрут не знайдено." });
 });
 
+<<<<<<< HEAD
+=======
+// Загальний обробник помилок
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 app.use((err, req, res, next) => {
   console.error("[app] Unhandled error:", err);
   res.status(500).json({ ok: false, message: "Внутрішня помилка сервера." });
 });
 
+<<<<<<< HEAD
 // ========== ДОДАНО ПЕРЕВІРКУ ==========
 console.log("🔍 Перевірка змінних .env:");
 console.log("   TELEGRAM_BOT_TOKEN:", process.env.TELEGRAM_BOT_TOKEN ? "✅ Є" : "❌ Немає");
@@ -67,3 +101,10 @@ app.listen(PORT, () => {
   console.log(`✅ MedLike API запущено на порту ${PORT}`);
   console.log(`🌐 http://localhost:${PORT}/api/health`);
 });
+=======
+registerTelegramCallbacks();
+
+app.listen(PORT, () => {
+  console.log(`✅ MedLike API запущено на порту ${PORT}`);
+});
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc

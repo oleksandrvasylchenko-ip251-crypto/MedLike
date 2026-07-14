@@ -1,10 +1,16 @@
 // config/telegram.js
+<<<<<<< HEAD
+=======
+// Telegram Bot API — надсилання сповіщень адміністратору та
+// обробка підтвердження/скасування запису прямо в чаті.
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 require("dotenv").config();
 const TelegramBot = require("node-telegram-bot-api");
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const adminChatId = process.env.TELEGRAM_ADMIN_CHAT_ID;
 
+<<<<<<< HEAD
 console.log("🤖 [telegram] Початок налаштування...");
 console.log("🤖 [telegram] Токен:", token ? "✅ Є (довжина: " + token.length + ")" : "❌ Немає");
 console.log("🤖 [telegram] Admin Chat ID:", adminChatId ? "✅ Є (" + adminChatId + ")" : "❌ Немає");
@@ -67,6 +73,20 @@ async function notifyAdminNewBooking(booking) {
     console.error("❌ [telegram] Admin Chat ID не налаштовано");
     return null;
   }
+=======
+if (!token || token === "your_bot_token_here") {
+  console.warn(
+    "[telegram] TELEGRAM_BOT_TOKEN не налаштовано в .env — сповіщення в Telegram працювати не будуть.",
+  );
+}
+
+// polling: true — бот сам опитує Telegram на нові команди (підтвердити/скасувати).
+// Для продакшену можна перейти на webhook (bot.setWebHook), якщо є HTTPS-домен.
+const bot = token ? new TelegramBot(token, { polling: true }) : null;
+
+async function notifyAdminNewBooking(booking) {
+  if (!bot || !adminChatId) return null;
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 
   const text =
     `🩺 *Новий запис на прийом*\n\n` +
@@ -76,6 +96,7 @@ async function notifyAdminNewBooking(booking) {
     (booking.note ? `Побажання: ${booking.note}\n` : "") +
     `\nID заявки: ${booking.id}`;
 
+<<<<<<< HEAD
   try {
     console.log("[telegram] 📤 Надсилання сповіщення адміну...");
     console.log("[telegram] Адреса чату:", adminChatId);
@@ -115,6 +136,25 @@ async function notifyAdminCallRequest(callRequest) {
     console.error("❌ [telegram] Admin Chat ID не налаштовано");
     return null;
   }
+=======
+  const message = await bot.sendMessage(adminChatId, text, {
+    parse_mode: "Markdown",
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: "✅ Підтвердити", callback_data: `confirm_booking_${booking.id}` },
+          { text: "❌ Скасувати", callback_data: `cancel_booking_${booking.id}` },
+        ],
+      ],
+    },
+  });
+
+  return message.message_id;
+}
+
+async function notifyAdminCallRequest(callRequest) {
+  if (!bot || !adminChatId) return null;
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 
   const text =
     `📞 *Заявка на зворотній дзвінок*\n\n` +
@@ -122,6 +162,7 @@ async function notifyAdminCallRequest(callRequest) {
     `Бажаний час очікування: ${callRequest.wait_minutes} хв\n` +
     `\nID заявки: ${callRequest.id}`;
 
+<<<<<<< HEAD
   try {
     console.log("[telegram] 📤 Надсилання сповіщення про дзвінок...");
     
@@ -133,6 +174,10 @@ async function notifyAdminCallRequest(callRequest) {
     console.error("❌ [telegram] Помилка надсилання сповіщення про дзвінок:", error.message);
     return null;
   }
+=======
+  const message = await bot.sendMessage(adminChatId, text, { parse_mode: "Markdown" });
+  return message.message_id;
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
 }
 
 module.exports = { bot, notifyAdminNewBooking, notifyAdminCallRequest };

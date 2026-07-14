@@ -4,6 +4,7 @@ const { notifyAdminNewBooking } = require("../config/telegram");
 
 async function createBooking(req, res) {
   try {
+<<<<<<< HEAD
     console.log("[bookingController] 📥 Отримано запит на запис");
     const { name, phone, service, note } = req.body;
     console.log("[bookingController] 📝 Дані:", { name, phone, service, note });
@@ -48,6 +49,26 @@ async function createBooking(req, res) {
       ok: false, 
       message: "❌ Помилка: " + error.message 
     });
+=======
+    const { name, phone, service, note } = req.body;
+    const booking = await bookingModel.createBooking({ name, phone, service, note });
+
+    try {
+      const messageId = await notifyAdminNewBooking(booking);
+      if (messageId) {
+        await bookingModel.setTelegramMessageId(booking.id, messageId);
+      }
+    } catch (telegramError) {
+      // Заявка вже збережена в БД навіть якщо Telegram недоступний —
+      // не валимо запит користувача через збій сповіщення.
+      console.error("[bookingController] Telegram notify failed:", telegramError.message);
+    }
+
+    return res.status(201).json({ ok: true, id: booking.id });
+  } catch (error) {
+    console.error("[bookingController] createBooking failed:", error);
+    return res.status(500).json({ ok: false, message: "Внутрішня помилка сервера." });
+>>>>>>> 6bdad9ca38addac2808754fbe95de3ad93aaedfc
   }
 }
 
