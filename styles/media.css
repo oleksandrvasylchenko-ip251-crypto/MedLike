@@ -1255,7 +1255,7 @@
   }
 
   .screening-header {
-    margin-bottom: 40px;
+     padding-top: 0;
   }
 
   .screening-subtitle {
@@ -1276,15 +1276,29 @@
 
   .screening-header {
     margin-bottom: 30px;
+    padding-top: 0; /* Прибираємо відступ, бо бейдж вже не absolute на мобільних */
   }
 
   .screening-header h2 {
     font-size: 26px;
   }
 
+  /* БЕЙДЖ - ПО ЦЕНТРУ НА МОБІЛЬНИХ */
+  .screening-badge-wrap {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
   .screening-badge {
     font-size: 12px;
-    padding: 4px 16px;
+    padding: 6px 16px 6px 12px;
+  }
+
+  .screening-badge img {
+    width: 48px;
+    height: 48px;
   }
 
   .screening-subtitle {
@@ -1365,9 +1379,23 @@
     font-size: 22px;
   }
 
+  /* БЕЙДЖ - МЕНШИЙ РОЗМІР НА ДУЖЕ МАЛИХ ЕКРАНАХ */
+  .screening-badge-wrap {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
   .screening-badge {
     font-size: 11px;
-    padding: 3px 14px;
+    padding: 4px 14px 4px 10px;
+    gap: 6px;
+  }
+
+  .screening-badge img {
+    width: 40px;
+    height: 40px;
   }
 
   .screening-subtitle {
@@ -1434,6 +1462,24 @@
 
   .screening-header h2 {
     font-size: 20px;
+  }
+
+  .screening-badge-wrap {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .screening-badge {
+    font-size: 10px;
+    padding: 3px 12px 3px 8px;
+    gap: 4px;
+  }
+
+  .screening-badge img {
+    width: 32px;
+    height: 32px;
   }
 
   .screening-grid {
