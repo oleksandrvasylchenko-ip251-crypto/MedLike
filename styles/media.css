@@ -1516,16 +1516,56 @@
   }
 }
 
-/* ==================== СТАТИСТИКА - МОБІЛЬНА АДАПТАЦІЯ ==================== */
+/* ==================== СТАТИСТИКА + ФОРМА - МОБІЛЬНА АДАПТАЦІЯ ==================== */
 
 /* Планшети та малі ноутбуки (до 1024px) */
 @media (max-width: 1024px) {
-  .booking-stats {
-    gap: 15px;
+  .booking-wrapper {
+    gap: 25px;
   }
 
-  .stat-item {
-    padding: 16px 10px;
+  .booking-stats-left,
+  .booking-stats-right {
+    min-width: 70px;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+
+  .booking-form {
+    padding: 28px 25px 25px;
+  }
+}
+
+/* Мобільні (до 768px) */
+@media (max-width: 768px) {
+  .booking-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Лічильники стають зверху і знизу форми */
+  .booking-stats-left {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .booking-stats-right {
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
   }
 
   .stat-number {
@@ -1533,68 +1573,48 @@
   }
 
   .stat-label {
-    font-size: 13px;
-  }
-}
-
-/* Мобільні (до 768px) */
-@media (max-width: 768px) {
-  .booking-stats {
-    grid-template-columns: repeat(2, 1fr); /* Стає 2 колонки */
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-
-  .stat-item {
-    padding: 18px 12px;
-  }
-
-  .stat-number {
-    font-size: 28px;
-  }
-
-  .stat-label {
     font-size: 12px;
+  }
+
+  .booking-form {
+    max-width: 100%;
+    width: 100%;
+    padding: 25px 20px 20px;
   }
 }
 
 /* Дуже малі екрани (до 480px) */
 @media (max-width: 480px) {
-  .booking-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 25px;
-  }
-
-  .stat-item {
-    padding: 14px 8px;
-    border-radius: 12px;
+  .booking-stats-left,
+  .booking-stats-right {
+    gap: 20px;
   }
 
   .stat-number {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .stat-label {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .booking-form {
+    padding: 20px 15px 18px;
   }
 }
 
 /* Екрани до 380px */
 @media (max-width: 380px) {
-  .booking-stats {
-    gap: 10px;
-  }
-
-  .stat-item {
-    padding: 12px 6px;
+  .booking-stats-left,
+  .booking-stats-right {
+    gap: 15px;
   }
 
   .stat-number {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .stat-label {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
