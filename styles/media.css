@@ -1521,20 +1521,30 @@
 /* Планшети та малі ноутбуки (до 1024px) */
 @media (max-width: 1024px) {
   .booking-wrapper {
-    gap: 25px;
+    gap: 30px;
   }
 
   .booking-stats-left,
   .booking-stats-right {
-    min-width: 70px;
+    min-width: 80px;
+    gap: 25px;
   }
 
   .stat-number {
     font-size: 34px;
   }
 
+  .stat-plus {
+    font-size: 30px;
+  }
+
   .stat-label {
     font-size: 12px;
+  }
+
+  .stat-label img {
+    width: 20px;
+    height: 20px;
   }
 
   .booking-form {
@@ -1546,34 +1556,52 @@
 @media (max-width: 768px) {
   .booking-wrapper {
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
   }
 
-  /* Лічильники стають зверху і знизу форми */
   .booking-stats-left {
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
     text-align: center;
     width: 100%;
+    min-width: unset;
   }
 
   .booking-stats-right {
     flex-direction: row;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     align-items: center;
     text-align: center;
     width: 100%;
+    min-width: unset;
+  }
+
+  .booking-stats-left .stat-label {
+    justify-content: center;
+  }
+
+  .booking-stats-right .stat-label {
+    justify-content: center;
   }
 
   .stat-number {
     font-size: 30px;
   }
 
+  .stat-plus {
+    font-size: 26px;
+  }
+
   .stat-label {
     font-size: 12px;
+  }
+
+  .stat-label img {
+    width: 20px;
+    height: 20px;
   }
 
   .booking-form {
@@ -1587,15 +1615,25 @@
 @media (max-width: 480px) {
   .booking-stats-left,
   .booking-stats-right {
-    gap: 20px;
+    gap: 25px;
   }
 
   .stat-number {
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  .stat-plus {
+    font-size: 22px;
   }
 
   .stat-label {
     font-size: 10px;
+    gap: 5px;
+  }
+
+  .stat-label img {
+    width: 16px;
+    height: 16px;
   }
 
   .booking-form {
@@ -1607,14 +1645,23 @@
 @media (max-width: 380px) {
   .booking-stats-left,
   .booking-stats-right {
-    gap: 15px;
+    gap: 18px;
   }
 
   .stat-number {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .stat-plus {
+    font-size: 18px;
   }
 
   .stat-label {
     font-size: 9px;
+  }
+
+  .stat-label img {
+    width: 14px;
+    height: 14px;
   }
 }

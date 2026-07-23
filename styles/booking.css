@@ -61,8 +61,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  max-width: 1100px;
+  gap: 60px; /* БІЛЬШІ ВІДСТУПИ ВІД ФОРМИ */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -71,9 +71,9 @@
 .booking-stats-right {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px; /* БІЛЬШІ ВІДСТУПИ МІЖ ЛІЧИЛЬНИКАМИ */
   flex: 0 0 auto;
-  min-width: 100px;
+  min-width: 120px;
 }
 
 .booking-stats-left {
@@ -97,27 +97,66 @@
 }
 
 .stat-number {
-  display: block;
+  display: inline-block;
   font-size: 42px;
   font-weight: 800;
   color: var(--primary);
   line-height: 1.1;
-  margin-bottom: 2px;
   font-family: 'Georgia', 'Times New Roman', serif;
   letter-spacing: 1px;
   text-shadow: 0 4px 15px rgba(9, 185, 170, 0.25);
 }
 
+.stat-plus {
+  display: inline-block;
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  text-shadow: 0 4px 15px rgba(9, 185, 170, 0.25);
+  margin-left: 2px;
+}
+
 .stat-label {
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--light-text);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-family: 'Arial', 'Helvetica', sans-serif;
+  margin-top: 2px;
 }
 
-/* Форма займає основне місце */
+.stat-label img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Ліва колонка - іконка після тексту */
+.booking-stats-left .stat-label {
+  justify-content: flex-end;
+}
+
+/* Права колонка - іконка перед текстом */
+.booking-stats-right .stat-label {
+  justify-content: flex-start;
+}
+
+.booking-stats-left .stat-label img {
+  order: 1;
+}
+
+.booking-stats-right .stat-label img {
+  order: 0;
+}
+
+/* Форма залишається без змін */
 .booking-form {
   max-width: 500px;
   margin: 0;

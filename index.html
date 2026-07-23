@@ -108,15 +108,22 @@
       <div class="booking-stats-left">
         <div class="stat-item">
           <span class="stat-number" data-count="21000">0</span>
-          <span class="stat-label">клієнтів</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">
+            <!-- <img src="https://img.icons8.com/nolan/64/user-group-man-man.png" width="24" height="24" alt="клієнти"/> -->
+            клієнтів
+          </span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-count="12">0</span>
-          <span class="stat-label">спеціалістів</span>
+          <span class="stat-label">
+            <!-- <img src="https://img.icons8.com/nolan/64/doctor-male.png" width="24" height="24" alt="спеціалісти"/> -->
+            спеціалістів
+          </span>
         </div>
       </div>
 
-      <!-- ФОРМА ПО ЦЕНТРУ -->
+      <!-- ФОРМА (БЕЗ ЗМІН) -->
       <form class="booking-form" id="bookingForm" name="bookingForm">
         <div class="form-row">
           <input
@@ -159,11 +166,18 @@
       <div class="booking-stats-right">
         <div class="stat-item">
           <span class="stat-number" data-count="15000">0</span>
-          <span class="stat-label">операцій</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">
+            <!-- <img width="64" height="64" src="https://img.icons8.com/nolan/64/surgical-scissors.png" alt="surgical-scissors"/> -->
+            операцій
+          </span>
         </div>
         <div class="stat-item">
           <span class="stat-number" data-count="12">0</span>
-          <span class="stat-label">напрямків</span>
+          <span class="stat-label">
+            <!-- <img width="64" height="64" src="https://img.icons8.com/nolan/64/tree-structure.png" alt="tree-structure"/> -->
+            напрямків
+          </span>
         </div>
       </div>
 
@@ -448,13 +462,11 @@
   </div>
 </section>
 
-
-    <!-- DOCTORS SECTION -->
+<!-- DOCTORS SECTION -->
 <section id="doctors" class="doctors-section">
   <div class="container">
     <!-- Заголовок -->
     <div class="doctors-header">
-      
       <h2>Професійна команда <span class="highlight">MedLayk</span></h2>
       <p class="section-subtitle">
         <strong>MedLayk</strong> — це команда кваліфікованих лікарів, які поєднують багаторічний практичний досвід із сучасними міжнародними підходами до діагностики та лікування. Ми працюємо відповідно до принципів доказової медицини, дотримуємося високих стандартів лікарської етики та забезпечуємо індивідуальний підхід до кожного пацієнта.
@@ -466,7 +478,7 @@
       <div class="carousel-container" id="carouselContainer">
         <div class="carousel-track" id="carouselTrack">
           
-          <!-- Лікар 1 -->
+          <!-- 1. Коновал Ігор Олексійович (чоловік) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
@@ -478,11 +490,11 @@
             </div>
             <div class="doctor-info">
               <h3>Коновал Ігор Олексійович</h3>
-              <p class="doctor-specialty">Офтальмолог, Офтальмохірург</p>
+              <p class="doctor-specialty">Лікар вищої категорії, офтальмолог, офтальмохірург</p>
             </div>
           </div>
 
-          <!-- Лікар 2 -->
+          <!-- 2. Чекіт Оксана Василівна (жінка) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
@@ -494,11 +506,27 @@
             </div>
             <div class="doctor-info">
               <h3>Чекіт Оксана Василівна</h3>
-              <p class="doctor-specialty">Головний лікар, Дерматовенеролог, Косметолог</p>
+              <p class="doctor-specialty">Медичний директор, лікар вищої категорії, дерматовенеролог, косметолог</p>
             </div>
           </div>
 
-          <!-- Лікар 3 -->
+          <!-- 3. Романчук Світлана Михайлівна (жінка) -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/IMG_7955_NEW_C_-te1.webp" 
+                alt="Романчук Світлана Михайлівна"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Романчук Світлана Михайлівна</h3>
+              <p class="doctor-specialty">Лікар вищої категорії, дерматовенеролог, косметолог</p>
+            </div>
+          </div>
+
+          <!-- 4. Дмитрів Ірина Володимирівна (жінка) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
@@ -510,94 +538,164 @@
             </div>
             <div class="doctor-info">
               <h3>Дмитрів Ірина Володимирівна</h3>
-              <p class="doctor-specialty">Хірург, Судинний хірург</p>
+              <p class="doctor-specialty">Лікар вищої категорії, хірург, судинний хірург</p>
             </div>
           </div>
 
-          <!-- Лікар 4 -->
-          <div class="doctor-card">
-            <div class="doctor-image">
-              <img 
-                loading="lazy" 
-                decoding="async"
-                src="images/IMG_7942_NEW_C_-te1.webp" 
-                alt="Засідкович Валентина"
-              />
-            </div>
-            <div class="doctor-info">
-              <h3>Засідкович Валентина Олександрівна</h3>
-              <p class="doctor-specialty">Психіатр</p>
-            </div>
-          </div>
-
-          <!-- Лікар 5 -->
+          <!-- 5. Пуковська Галина Василівна (жінка) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
                 loading="lazy" 
                 decoding="async"
                 src="images/IMG_7944_NEW_C_-te1.webp" 
-                alt="Пуковська Галина"
+                alt="Пуковська Галина Василівна"
               />
             </div>
             <div class="doctor-info">
               <h3>Пуковська Галина Василівна</h3>
-              <p class="doctor-specialty">Терапевт</p>
+              <p class="doctor-specialty">Лікар вищої категорії, терапевт</p>
             </div>
           </div>
 
-          <!-- Лікар 6 -->
+          <!-- 6. Юркевич Надія Іванівна (жінка) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
                 loading="lazy" 
                 decoding="async"
                 src="images/IMG_7932_NEW_c_-te1.webp" 
-                alt="Юркевич Надія"
+                alt="Юркевич Надія Іванівна"
               />
             </div>
             <div class="doctor-info">
               <h3>Юркевич Надія Іванівна</h3>
-              <p class="doctor-specialty">Педіатр</p>
+              <p class="doctor-specialty">Лікар вищої категорії, педіатр</p>
             </div>
           </div>
 
-          <!-- Лікар 7 -->
+          <!-- 7. Засідкович Валентина Олександрівна (жінка) -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
                 loading="lazy" 
                 decoding="async"
-                src="images/IMG_7955_NEW_C_-te1.webp" 
-                alt="Романчук Світлана"
+                src="images/IMG_7942_NEW_C_-te1.webp" 
+                alt="Засідкович Валентина Олександрівна"
               />
             </div>
             <div class="doctor-info">
-              <h3>Романчук Світлана Михайлівна</h3>
-              <p class="doctor-specialty">Дерматовенеролог, Косметолог</p>
+              <h3>Засідкович Валентина Олександрівна</h3>
+              <p class="doctor-specialty">Лікар вищої категорії, психіатр</p>
             </div>
           </div>
 
-          <!-- Лікар 8 -->
+          <!-- 8. Пахарено Людмила Володимирівна (жінка) - ЗАГЛУШКА -->
           <div class="doctor-card">
             <div class="doctor-image">
               <img 
                 loading="lazy" 
                 decoding="async"
-                src="images/IMG_7936_NEW_C_-te1.webp" 
-                alt="Русінова Христина"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_06.png" 
+                alt="Пахарено Людмила Володимирівна"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
               />
             </div>
             <div class="doctor-info">
-              <h3>Русінова Христина Ігорівна</h3>
-              <p class="doctor-specialty">Офтальмолог (І категорія)</p>
+              <h3>Пахарено Людмила Володимирівна</h3>
+              <p class="doctor-specialty">Доктор медичних наук, професор, лікар вищої категорії, акушер-гінеколог</p>
+            </div>
+          </div>
+
+          <!-- 9. Орленко Аліна Григорівна (жінка) - ЗАГЛУШКА -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_06.png" 
+                alt="Орленко Аліна Григорівна"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Орленко Аліна Григорівна</h3>
+              <p class="doctor-specialty">Лікар вищої категорії, ендокринолог</p>
+            </div>
+          </div>
+
+          <!-- 10. Оріщак Діана Тадеївна (жінка) - ЗАГЛУШКА -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_06.png" 
+                alt="Оріщак Діана Тадеївна"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Оріщак Діана Тадеївна</h3>
+              <p class="doctor-specialty">Кандидат медичних наук, доцент, лікар вищої категорії, отоларинголог</p>
+            </div>
+          </div>
+
+          <!-- 11. Кулаєць Надія Михайлівна (жінка) - ЗАГЛУШКА -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_06.png" 
+                alt="Кулаєць Надія Михайлівна"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Кулаєць Надія Михайлівна</h3>
+              <p class="doctor-specialty">Кандидат медичних наук, доцент, кардіолог</p>
+            </div>
+          </div>
+
+          <!-- 12. Кулаєць Віра Михайлівна (жінка) - ЗАГЛУШКА -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_06.png" 
+                alt="Кулаєць Віра Михайлівна"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Кулаєць Віра Михайлівна</h3>
+              <p class="doctor-specialty">Кандидат медичних наук, доцент, лікар вищої категорії, гастроентеролог</p>
+            </div>
+          </div>
+
+          <!-- 13. Коновалов Сергій Олегович (чоловік) - ЗАГЛУШКА -->
+          <div class="doctor-card">
+            <div class="doctor-image">
+              <img 
+                loading="lazy" 
+                decoding="async"
+                src="images/ChatGPT Image 23 лип. 2026 р., 18_09_09.png" 
+                alt="Коновалов Сергій Олегович"
+                style="object-fit: contain; background: #f0f4f8; padding: 20px;"
+              />
+            </div>
+            <div class="doctor-info">
+              <h3>Коновалов Сергій Олегович</h3>
+              <p class="doctor-specialty">Лікар вищої категорії, нейрохірург, вертебролог</p>
             </div>
           </div>
 
         </div>
       </div>
 
-      <!-- КНОПКИ НАВІГАЦІЇ (тільки на десктопі) -->
+      <!-- КНОПКИ НАВІГАЦІЇ -->
       <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Попередні лікарі">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -613,6 +711,8 @@
     <!-- ТОЧКИ НАВІГАЦІЇ -->
     <div class="carousel-dots" id="carouselDots"></div>
   </div>
+</section>
+
 </section>
     <!-- GALLERY SECTION -->
     <section id="gallery" class="gallery">
