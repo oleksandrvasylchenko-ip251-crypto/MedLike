@@ -1515,3 +1515,86 @@
     padding: 8px 14px;
   }
 }
+
+/* ==================== СТАТИСТИКА - МОБІЛЬНА АДАПТАЦІЯ ==================== */
+
+/* Планшети та малі ноутбуки (до 1024px) */
+@media (max-width: 1024px) {
+  .booking-stats {
+    gap: 15px;
+  }
+
+  .stat-item {
+    padding: 16px 10px;
+  }
+
+  .stat-number {
+    font-size: 30px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+}
+
+/* Мобільні (до 768px) */
+@media (max-width: 768px) {
+  .booking-stats {
+    grid-template-columns: repeat(2, 1fr); /* Стає 2 колонки */
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  .stat-item {
+    padding: 18px 12px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+  }
+}
+
+/* Дуже малі екрани (до 480px) */
+@media (max-width: 480px) {
+  .booking-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .stat-item {
+    padding: 14px 8px;
+    border-radius: 12px;
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+}
+
+/* Екрани до 380px */
+@media (max-width: 380px) {
+  .booking-stats {
+    gap: 10px;
+  }
+
+  .stat-item {
+    padding: 12px 6px;
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+}

@@ -94,51 +94,77 @@
       <div class="hero-content"></div>
     </section>
 
-    <!-- BOOKING FORM -->
-    <section id="booking" class="booking">
-      <div class="container">
-        <h2>Записатися на <span class="color_l">прийом</span></h2>
-        <form class="booking-form" id="bookingForm" name="bookingForm">
-          <div class="form-row">
-            <input
-              type="text"
-              id="bookingName"
-              name="name"
-              placeholder="Ім'я та Прізвище"
-              autocomplete="name"
-              required
-            />
-            <input
-              type="tel"
-              id="bookingPhone"
-              name="phone"
-              placeholder="Телефон"
-              autocomplete="tel"
-              required
-            />
-          </div>
-          <div class="form-row">
-            <select id="bookingService" name="service" required>
-              <option value="">Виберіть послугу</option>
-              <option value="ophthalmology">Офтальмологія</option>
-              <option value="surgery">Хірургія</option>
-              <option value="aesthetic">Естетична медицина</option>
-              <option value="vaccination">Вакцинація</option>
-              <option value="consultation">Консультація</option>
-            </select>
-            <input
-              type="text"
-              id="bookingNote"
-              name="note"
-              placeholder="Побажання (необов'язково)"
-            />
-          </div>
-          <button type="submit" class="cta-btn">Надіслати</button>
-        </form>
-      </div>
-    </section>
+ 
 
-    <!-- ABOUT SECTION -->
+ <!-- BOOKING FORM -->
+<section id="booking" class="booking">
+  <div class="container">
+    <h2>Записатися на <span class="color_l">прийом</span></h2>
+
+    <!-- ===== НОВИЙ БЛОК З ЛІЧИЛЬНИКАМИ ===== -->
+    <div class="booking-stats">
+      <div class="stat-item">
+        <span class="stat-number" data-count="15000">0</span>
+        <span class="stat-label">операцій</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="21000">0</span>
+        <span class="stat-label">клієнтів</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="12">0</span>
+        <span class="stat-label">спеціалістів</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-count="12">0</span>
+        <span class="stat-label">напрямків</span>
+      </div>
+    </div>
+
+    <!-- ФОРМА -->
+    <form class="booking-form" id="bookingForm" name="bookingForm">
+      <div class="form-row">
+        <input
+          type="text"
+          id="bookingName"
+          name="name"
+          placeholder="Ім'я та Прізвище"
+          autocomplete="name"
+          required
+        />
+        <input
+          type="tel"
+          id="bookingPhone"
+          name="phone"
+          placeholder="Телефон"
+          autocomplete="tel"
+          required
+        />
+      </div>
+      <div class="form-row">
+        <select id="bookingService" name="service" required>
+          <option value="">Виберіть послугу</option>
+          <option value="ophthalmology">Офтальмологія</option>
+          <option value="surgery">Хірургія</option>
+          <option value="aesthetic">Естетична медицина</option>
+          <option value="vaccination">Вакцинація</option>
+          <option value="consultation">Консультація</option>
+        </select>
+        <input
+          type="text"
+          id="bookingNote"
+          name="note"
+          placeholder="Побажання (необов'язково)"
+        />
+      </div>
+      <button type="submit" class="cta-btn">Надіслати</button>
+    </form>
+  </div>
+</section>
+
+
+
+<!-- ABOUT SECTION -->
     <section id="about" class="about">
       <div class="container">
         <h2>Послуги та <span class="color_l">ціни</span></h2>
