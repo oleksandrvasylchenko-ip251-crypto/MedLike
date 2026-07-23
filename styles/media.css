@@ -1108,3 +1108,364 @@
     font-size: 13px;
   }
 }
+
+/* ============================================
+   ВІДЕО-СЕКЦІЯ - МОБІЛЬНА АДАПТАЦІЯ
+   ============================================ */
+
+/* ===== ПЛАНШЕТИ (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .video-section {
+    padding: 60px 20px;
+  }
+
+  .video-header {
+    margin-bottom: 35px;
+  }
+
+  .video-subtitle {
+    font-size: 16px;
+  }
+
+  .video-wrapper {
+    border-radius: 14px;
+  }
+
+  .video-footer {
+    margin-top: 20px;
+    padding: 12px 18px;
+  }
+}
+
+/* ===== МОБІЛЬНІ (ДО 768px) ===== */
+@media (max-width: 768px) {
+  .video-section {
+    padding: 50px 15px;
+    scroll-margin-top: 60px;
+  }
+
+  .video-header {
+    margin-bottom: 28px;
+  }
+
+  .video-header h2 {
+    font-size: 28px;
+  }
+
+  .video-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0 5px;
+  }
+
+  .video-wrapper {
+    border-radius: 12px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .video-footer {
+    margin-top: 18px;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+
+  .video-footer p {
+    font-size: 14px;
+  }
+
+  .video-icon {
+    font-size: 18px;
+    margin-right: 6px;
+  }
+}
+
+/* ===== ДУЖЕ МАЛІ ЕКРАНИ (ДО 480px) ===== */
+@media (max-width: 480px) {
+  .video-section {
+    padding: 40px 12px;
+    scroll-margin-top: 50px;
+  }
+
+  .video-header {
+    margin-bottom: 22px;
+  }
+
+  .video-header h2 {
+    font-size: 22px;
+  }
+
+  .video-subtitle {
+    font-size: 14px;
+    padding: 0 3px;
+  }
+
+  .video-wrapper {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .video-footer {
+    margin-top: 15px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .video-footer p {
+    font-size: 13px;
+  }
+
+  .video-icon {
+    font-size: 16px;
+  }
+}
+
+/* ===== ВЕЛИКІ ЕКРАНИ (1440px+) ===== */
+@media (min-width: 1440px) {
+  .video-section {
+    padding: 100px 20px;
+  }
+
+  .video-wrapper {
+    max-width: 1000px;
+    border-radius: 20px;
+  }
+
+  .video-header h2 {
+    font-size: 48px;
+  }
+
+  .video-subtitle {
+    font-size: 20px;
+  }
+}
+
+/* ============================================
+   СКРИНІНГ 40+ - МОБІЛЬНА АДАПТАЦІЯ
+   ============================================ */
+
+/* Планшети (768px - 1024px) */
+@media (max-width: 1024px) {
+  .screening-section {
+    padding: 60px 20px;
+  }
+
+  .screening-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .screening-header {
+    margin-bottom: 40px;
+  }
+
+  .screening-subtitle {
+    font-size: 16px;
+  }
+
+  .screening-footer {
+    padding: 25px 20px;
+  }
+}
+
+/* Мобільні (до 768px) */
+@media (max-width: 768px) {
+  .screening-section {
+    padding: 50px 15px;
+    scroll-margin-top: 60px;
+  }
+
+  .screening-header {
+    margin-bottom: 30px;
+  }
+
+  .screening-header h2 {
+    font-size: 26px;
+  }
+
+  .screening-badge {
+    font-size: 12px;
+    padding: 4px 16px;
+  }
+
+  .screening-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 5px;
+  }
+
+  .screening-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 35px;
+  }
+
+  .screening-card {
+    padding: 20px 15px 18px;
+    border-radius: 12px;
+  }
+
+  .screening-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .screening-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .screening-card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .screening-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .screening-footer {
+    padding: 22px 18px 20px;
+    border-radius: 12px;
+  }
+
+  .screening-cta-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .screening-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .screening-btn {
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .screening-address {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+}
+
+/* Дуже малі екрани (до 480px) */
+@media (max-width: 480px) {
+  .screening-section {
+    padding: 40px 12px;
+    scroll-margin-top: 50px;
+  }
+
+  .screening-header {
+    margin-bottom: 25px;
+  }
+
+  .screening-header h2 {
+    font-size: 22px;
+  }
+
+  .screening-badge {
+    font-size: 11px;
+    padding: 3px 14px;
+  }
+
+  .screening-subtitle {
+    font-size: 14px;
+    padding: 0 3px;
+  }
+
+  .screening-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .screening-card {
+    padding: 16px 12px 14px;
+    border-radius: 10px;
+  }
+
+  .screening-icon {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+
+  .screening-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .screening-card p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .screening-footer {
+    padding: 18px 14px 16px;
+    border-radius: 10px;
+  }
+
+  .screening-cta-text {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .screening-buttons {
+    gap: 10px;
+  }
+
+  .screening-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .screening-address {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+}
+
+/* Екрани до 380px */
+@media (max-width: 380px) {
+  .screening-section {
+    padding: 30px 10px;
+  }
+
+  .screening-header h2 {
+    font-size: 20px;
+  }
+
+  .screening-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .screening-card {
+    padding: 14px 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .screening-icon {
+    font-size: 24px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .screening-card h3 {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .screening-card p {
+    font-size: 12px;
+  }
+
+  .screening-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}

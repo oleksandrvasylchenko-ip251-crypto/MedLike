@@ -1,0 +1,218 @@
+/* ============================================
+   СКРИНІНГ 40+ - БАЗОВІ СТИЛІ (БЕЗ @media)
+   ============================================ */
+
+.screening-section {
+  padding: 80px 20px;
+  background: var(--light-bg);
+  scroll-margin-top: 80px;
+}
+
+/* === Заголовок === */
+.screening-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.screening-badge {
+  display: inline-block;
+  background: rgba(9, 185, 170, 0.12);
+  color: var(--primary);
+  padding: 6px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.screening-header h2 {
+  font-size: 42px;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.screening-header h2 .color_l {
+  color: var(--primary);
+}
+
+.screening-subtitle {
+  font-size: 18px;
+  color: var(--light-text);
+  line-height: 1.7;
+  margin: 0 auto 10px;
+  max-width: 700px;
+}
+
+.screening-subtitle strong {
+  color: var(--dark);
+}
+
+/* === Сітка послуг === */
+.screening-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto 45px;
+}
+
+.screening-card {
+  background: var(--white);
+  padding: 30px 20px 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(9, 185, 170, 0.08);
+}
+
+.screening-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 35px rgba(9, 185, 170, 0.12);
+  border-color: var(--primary);
+}
+
+.screening-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.screening-card h3 {
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.screening-card p {
+  font-size: 14px;
+  color: var(--light-text);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================
+   ПІДВАЛ З КНОПКАМИ (оновлена верстка)
+   ============================================ */
+.screening-footer {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px 30px 25px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(9, 185, 170, 0.08);
+}
+
+/* Текст "Записатися на скринінг:" з іконкою */
+.screening-cta-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.screening-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.screening-cta-icon img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* Кнопки */
+.screening-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.screening-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.screening-btn img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.screening-btn-phone {
+  background: #f0fdfa;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.screening-btn-phone:hover {
+  background: var(--primary);
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(9, 185, 170, 0.3);
+}
+
+.screening-btn-phone:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.screening-btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.screening-btn-primary:hover {
+  background: #07a699;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(9, 185, 170, 0.3);
+}
+
+/* Адреса з іконкою */
+.screening-address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--light-text);
+  margin: 0;
+}
+
+.screening-address-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.screening-address-icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
