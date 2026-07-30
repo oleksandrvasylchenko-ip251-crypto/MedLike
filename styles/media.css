@@ -1243,7 +1243,7 @@
    СКРИНІНГ 40+ - МОБІЛЬНА АДАПТАЦІЯ
    ============================================ */
 
-/* Планшети (768px - 1024px) */
+/* Планшети (768px - 1024px) - бейдж ЗЛІВА */
 @media (max-width: 1024px) {
   .screening-section {
     padding: 60px 20px;
@@ -1255,7 +1255,25 @@
   }
 
   .screening-header {
-     padding-top: 0;
+    padding-top: 70px;
+  }
+
+  /* БЕЙДЖ ЗЛІВА НА ПЛАНШЕТАХ */
+  .screening-badge-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  .screening-badge {
+    font-size: 13px;
+    padding: 6px 18px 6px 14px;
+  }
+
+  .screening-badge img {
+    width: 48px;
+    height: 48px;
   }
 
   .screening-subtitle {
@@ -1267,7 +1285,7 @@
   }
 }
 
-/* Мобільні (до 768px) */
+/* Мобільні (до 768px) - бейдж ПО ЦЕНТРУ */
 @media (max-width: 768px) {
   .screening-section {
     padding: 50px 15px;
@@ -1276,7 +1294,7 @@
 
   .screening-header {
     margin-bottom: 30px;
-    padding-top: 0; /* Прибираємо відступ, бо бейдж вже не absolute на мобільних */
+    padding-top: 60px;
   }
 
   .screening-header h2 {
@@ -1297,8 +1315,8 @@
   }
 
   .screening-badge img {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
 
   .screening-subtitle {
@@ -1373,13 +1391,13 @@
 
   .screening-header {
     margin-bottom: 25px;
+    padding-top: 50px;
   }
 
   .screening-header h2 {
     font-size: 22px;
   }
 
-  /* БЕЙДЖ - МЕНШИЙ РОЗМІР НА ДУЖЕ МАЛИХ ЕКРАНАХ */
   .screening-badge-wrap {
     position: static;
     display: flex;
@@ -1394,8 +1412,8 @@
   }
 
   .screening-badge img {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
   }
 
   .screening-subtitle {
@@ -1460,6 +1478,10 @@
     padding: 30px 10px;
   }
 
+  .screening-header {
+    padding-top: 45px;
+  }
+
   .screening-header h2 {
     font-size: 20px;
   }
@@ -1478,8 +1500,8 @@
   }
 
   .screening-badge img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
 
   .screening-grid {
