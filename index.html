@@ -123,26 +123,29 @@
         </div>
       </div>
 
-      <!-- ФОРМА  -->
+     <!-- ФОРМА -->
       <form class="booking-form" id="bookingForm" name="bookingForm">
+        <!-- Рядок 1: Ім'я + Прізвище -->
         <div class="form-row">
           <input
             type="text"
             id="bookingName"
             name="name"
-            placeholder="Ім'я та Прізвище"
+            placeholder="Ім'я"
             autocomplete="name"
             required
           />
           <input
-            type="tel"
-            id="bookingPhone"
-            name="phone"
-            placeholder="Телефон"
-            autocomplete="tel"
+            type="text"
+            id="bookingSurname"
+            name="surname"
+            placeholder="Прізвище"
+            autocomplete="family-name"
             required
           />
         </div>
+
+        <!-- Рядок 2: Виберіть послугу + Телефон -->
         <div class="form-row">
           <select id="bookingService" name="service" required>
             <option value="">Виберіть послугу</option>
@@ -152,13 +155,16 @@
             <option value="vaccination">Вакцинація</option>
             <option value="consultation">Консультація</option>
           </select>
-          <!-- <input
-            type="text"
-            id="bookingNote"
-            name="note"
-            placeholder="Побажання (необов'язково)"
-          /> -->
+          <input
+            type="tel"
+            id="bookingPhone"
+            name="phone"
+            placeholder="Телефон"
+            autocomplete="tel"
+            required
+          />
         </div>
+
         <button type="submit" class="cta-btn">Надіслати</button>
       </form>
 
